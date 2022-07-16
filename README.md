@@ -14,8 +14,9 @@ The box office in a theatre, cinema, or concert hall is the place where the tick
 
 ---
 
-## [Wireframe]()
+## Wireframe
 
+![Wireframe](./images/Wireframe.png)
 
 ---
 
