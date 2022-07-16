@@ -1,6 +1,4 @@
-# boxAmOffice
-
-
+# Box-AM-Office
 
 ## Team 
 
@@ -56,7 +54,8 @@ The box office in a theatre, cinema, or concert hall is the place where the tick
 
 ---
 
-## [Database Schema Diagram]()
+## Database Schema Diagram
+![images](./images/ERD.png)
 
 * **Movie**
 Movieis a class which holds the properties 
