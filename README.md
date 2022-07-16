@@ -114,8 +114,8 @@ We have a table of tasks with deadline and status for each one.
 |:-|:-|:-| 
 | Planning | 15/7/2022 | Completeed |
 | Diagram | 16/7/2022 | Completeed | 
-| Entity FrameWork | 16/7/2022 | Completeed | 
+| Entity FrameWork | 17/7/2022 | Completeed | 
 | Services | 17/7/2022 | incomplete | 
 | Controllers | 18/7/2022 | incomplete | 
 | Identity | 19/7/2022 | incomplete | 
-| viwe | 20/7/2022 | incomplete | 
+| view | 20/7/2022 | incomplete | 
