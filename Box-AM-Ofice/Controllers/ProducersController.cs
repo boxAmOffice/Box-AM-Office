@@ -115,7 +115,6 @@ namespace Box_AM_Ofice.Controllers
 
         // POST: Actors/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _producer.DeleteProducer(id);
