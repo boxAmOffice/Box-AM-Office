@@ -36,6 +36,7 @@ namespace Box_AM_Ofice
             services.AddTransient<IActor, ActorService>();
             services.AddTransient<IProducer, ProducerServices>();
             services.AddTransient<ICinema, CinemaService>();
+            services.AddTransient<IMovie, MovieService>();
 
         }
 
