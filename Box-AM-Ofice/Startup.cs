@@ -1,3 +1,5 @@
+using Box_AM_Ofice.Models.Interfaces;
+using Box_AM_Ofice.Models.Services;
 using boxAmOffice.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +32,8 @@ namespace Box_AM_Ofice
                 options.UseSqlServer(connectionString);
             });
             services.AddControllersWithViews();
+
+            services.AddTransient<IActor, ActorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
