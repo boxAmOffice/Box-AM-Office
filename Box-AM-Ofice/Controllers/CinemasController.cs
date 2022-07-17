@@ -25,7 +25,7 @@ namespace eTickets.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Logo,Name,Description")] Cinema cinema)
+        public async Task<IActionResult> Create(Cinema cinema)
 
         {
             if (!ModelState.IsValid) // check validations like Required annotation
@@ -51,7 +51,7 @@ namespace eTickets.Controllers
             return View(CinemaDetails);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Logo,Name,Description")] Cinema cinema)
+        public async Task<IActionResult> Edit(int id,Cinema cinema)
 
         {
             if (!ModelState.IsValid) // check validations like Required annotation
