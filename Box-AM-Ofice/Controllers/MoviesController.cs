@@ -24,6 +24,14 @@ namespace Box_AM_Ofice.Controllers
             return View(movies);
         }
 
+        // GET: Movies
+        public async Task<IActionResult> AllMovies()
+        {
+            List<Movie> allmovies = await _movies.GetMovies();
+            return View(allmovies);
+        }
+
+
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int id)
         {
