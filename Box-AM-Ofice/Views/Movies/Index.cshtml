@@ -7,8 +7,6 @@
 <h1>Index</h1>
 
 <p>
-     @if (signInManager.IsSignedIn(User) && (User.IsInRole("Administrator")))
-                        { 
     <a asp-action="Create">Create New</a>
                         }
 </p>
@@ -58,7 +56,7 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageURL)
+                <img  src="@item.ImageURL" alt="@item.Name" style="max-width:150px">
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
@@ -81,6 +79,7 @@
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="AllMovies" asp-route-id="@item.Id">AllMovies</a>
             </td>
                         }
         </tr>

@@ -28,10 +28,10 @@ namespace boxAmOffice.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-         
+
             modelBuilder.Entity<Movie>().HasData(
                         new Movie
-                        {   
+                        {
                             Id = 1,
                             Name = "Life",
                             Description = "This is the Life movie description",
@@ -42,7 +42,33 @@ namespace boxAmOffice.Models
                             CinemaId = 1,
                             ProducerId = 1,
                             MovieCategory = MovieCategory.Documentary
-                        }
+                        },
+                      new Movie
+                      {
+                          Id = 2,
+                          Name = "Minions: The Rise of Gru",
+                          Description = "The untold story of one twelve-year-old's dream to become the world's greatest supervillain.",
+                          Price = 25.99,
+                          ImageURL = "https://sultan.blob.core.windows.net/attac/Minions.jpg",
+                          StartDate = DateTime.Now.AddDays(-10),
+                          EndDate = DateTime.Now.AddDays(10),
+                          CinemaId = 2,
+                          ProducerId = 1,
+                          MovieCategory = MovieCategory.Comedy
+                      },
+                      new Movie
+                      {
+                          Id = 3,
+                          Name = "Infiltration",
+                          Description = "Ivan sets off on a dangerous mission into Syria to save his ex-commander Grey after his capture by ISIS. With the help of U.S. military patrols, he succeeds in freeing Grey and attempts to escape the country while being hunted by terrorists.",
+                          Price = 29.99,
+                          ImageURL = "https://sultan.blob.core.windows.net/attac/Infiltration.png",
+                          StartDate = DateTime.Now.AddDays(-10),
+                          EndDate = DateTime.Now.AddDays(10),
+                          CinemaId = 3,
+                          ProducerId = 2,
+                          MovieCategory = MovieCategory.Action
+                      }
 
                         );
 
@@ -50,11 +76,19 @@ namespace boxAmOffice.Models
                 new Producer
                 {
                     Id = 1,
-                    FullName = "Producer 1",
-                    Bio = "This is the Bio of the first actor",
-                    ProfilePictureURL = ""
+                    FullName = "Kyle Balda",
+                    Bio = "Kyle Balda is a BAFTA nominated feature animation director working in the industry for 30 years",
+                    ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Kyle_Balda.jpg"
 
-                }
+                },
+                 new Producer
+                 {
+                     Id = 2,
+                     FullName = "Aleksey Chadov",
+                     Bio = "Aleksey Aleksandrovich Chadov was born on September 2, 1981, in Solntsevo, Moscow region, RSFSR, USSR, now a suburb of Moscow, Russia.",
+                     ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Chadov_Aleksey.jpg"
+
+                 }
 
                         );
 
@@ -62,9 +96,49 @@ namespace boxAmOffice.Models
                 new Actor
                 {
                     Id = 1,
-                    FullName = "Actor 1",
-                    Bio = "This is the Bio of the first actor",
-                    ProfilePictureURL = ""
+                    FullName = "Steven John",
+                    Bio = "Is an American actor and comedian",
+                    ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/StevenJohn.jpg"
+
+                },
+                new Actor
+                {
+                    Id = 7,
+                    FullName = "Van Damme",
+                    Bio = "Is an Belgian actor",
+                    ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Van_Damme.jpg"
+
+                },
+                new Actor
+                {
+                    Id = 3,
+                    FullName = "Taraji Penda Henson",
+                    Bio = "Is an American actress and singer",
+                    ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Taraji_Henson.jpg"
+
+                },
+                new Actor
+                {
+                    Id = 4,
+                    FullName = "Kristina Asmus",
+                    Bio = "Kristina Asmus was born Kristina Igorevna Myasnikova on April 14, 1988, in Kaliningrad",
+                    ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Kristina_Asmus.jpg"
+
+                },
+                new Actor
+                {
+                    Id = 5,
+                    FullName = "Jalil Asretov",
+                    Bio = "alil Asretov was born on February 26, 1994 in Makhachkala, Republic of Dagestan, Russia.",
+                    ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Jalil_Asretov.png"
+
+                },
+                new Actor
+                {
+                    Id = 6,
+                    FullName = "Sergey Borisov",
+                    Bio = "Sergey Borisov was born on April 4, 1975 in the USSR. He is an actor",
+                    ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Sergey_Borisov.png"
 
                 }
                 );
@@ -72,18 +146,61 @@ namespace boxAmOffice.Models
               new Cinema
               {
                   Id = 1,
-                  Name = "Cinema 1",
-                  Logo = "",
-                  Description = "This is the description of the first cinema"
+                  Name = "Taj Cinemas",
+                  Logo = "https://sultan.blob.core.windows.net/attac/Taj.png",
+                  Description = "TAJ Cinemas is the first to introduce the latest in high-tech services to movie-goers such as an online ticketing function to avoid queues"
+
+              },
+              new Cinema
+              {
+                  Id = 2,
+                  Name = "Prime Cinemas Abdali",
+                  Logo = "https://sultan.blob.core.windows.net/attac/Prime.png",
+                  Description = "The focus of Prime Cinemas is all about our guests and the convenience for local people – this is YOUR local neighborhood cinema!"
+
+              },
+              new Cinema
+              {
+                  Id = 3,
+                  Name = "Prime Cinemas Irbid",
+                  Logo = "https://sultan.blob.core.windows.net/attac/Prime.png",
+                  Description = "The focus of Prime Cinemas is all about our guests and the convenience for local people – this is YOUR local neighborhood cinema!"
 
               }
+
+
               );
             modelBuilder.Entity<Actor_Movie>().HasData(
                 new Actor_Movie()
                 {
                     ActorId = 1,
                     MovieId = 1
-                }
+                },
+                new Actor_Movie()
+                {
+                    ActorId = 2,
+                    MovieId = 1
+                }, new Actor_Movie()
+                {
+                    ActorId = 3,
+                    MovieId = 1
+                },
+                 new Actor_Movie()
+                 {
+                     ActorId = 4,
+                     MovieId = 2
+                 },
+                 new Actor_Movie()
+                 {
+                     ActorId = 5,
+                     MovieId = 2
+                 },
+                 new Actor_Movie()
+                 {
+                     ActorId = 6,
+                     MovieId = 2
+                 }
+
                 );
             modelBuilder.Entity<Actor_Movie>().HasKey(am => new
             {
@@ -144,7 +261,7 @@ namespace boxAmOffice.Models
         
     }
 
-       
+
     }
 
 }
