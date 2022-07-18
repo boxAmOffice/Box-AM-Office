@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using boxAmOffice.Models;
 using Box_AM_Ofice.Models.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Box_AM_Ofice.Controllers
 {
@@ -44,10 +45,13 @@ namespace Box_AM_Ofice.Controllers
         }
 
         // GET: Actors/Create
+        [Authorize(Roles = "Administrator")]
+
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize(Roles = "Administrator")]
 
         [HttpPost]
         public async Task<IActionResult> Create(Actor actor)
@@ -61,6 +65,8 @@ namespace Box_AM_Ofice.Controllers
         }
 
         // GET: Actors/Edit/5
+        [Authorize(Roles = "Administrator")]
+
         public async Task<IActionResult> Edit(int id)
         {
             if (id == 0)
@@ -76,6 +82,7 @@ namespace Box_AM_Ofice.Controllers
             }
             return View(actor);
         }
+        [Authorize(Roles = "Administrator")]
 
         [HttpPost]
         public async Task<IActionResult> Edit(int id, Actor actor)
@@ -96,6 +103,8 @@ namespace Box_AM_Ofice.Controllers
         }
 
         // GET: Actors/Delete/5
+        [Authorize(Roles = "Administrator")]
+
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)
@@ -114,6 +123,8 @@ namespace Box_AM_Ofice.Controllers
         }
 
         // POST: Actors/Delete/5
+        [Authorize(Roles = "Administrator")]
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

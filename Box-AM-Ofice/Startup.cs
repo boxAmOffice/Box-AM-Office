@@ -1,9 +1,11 @@
+using Box_AM_Ofice.Models;
 using Box_AM_Ofice.Models.Interfaces;
 using Box_AM_Ofice.Models.Services;
 using boxAmOffice.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,12 +33,21 @@ namespace Box_AM_Ofice
                 string connectionString = Configuration.GetConnectionString("DefaultConnection");
                 options.UseSqlServer(connectionString);
             });
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<AppDbContext>();
+
             services.AddControllersWithViews();
+
+            services.AddAuthentication();
+            services.AddAuthorization();
 
             services.AddTransient<IActor, ActorService>();
             services.AddTransient<IProducer, ProducerServices>();
             services.AddTransient<ICinema, CinemaService>();
             services.AddTransient<IMovie, MovieService>();
+            services.AddTransient<IUser, UserService>();
 
         }
 
@@ -57,6 +68,8 @@ namespace Box_AM_Ofice
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

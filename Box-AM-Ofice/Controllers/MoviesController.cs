@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using boxAmOffice.Models;
 using Box_AM_Ofice.Models.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Box_AM_Ofice.Controllers
 {
@@ -32,12 +33,16 @@ namespace Box_AM_Ofice.Controllers
         }
 
         // GET: Movies/Create
+        [Authorize(Roles = "Administrator")]
+
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: Movies/Create
+        [Authorize(Roles = "Administrator")]
+
         [HttpPost]
         public async Task<IActionResult> Create(Movie movie)
         {
@@ -50,6 +55,8 @@ namespace Box_AM_Ofice.Controllers
         }
 
         // GET: Movies/Edit/5
+        [Authorize(Roles = "Administrator")]
+
         public async Task<IActionResult> Edit(int id)
         {
             Movie movie = await _movies.GetMovie(id);
@@ -57,6 +64,8 @@ namespace Box_AM_Ofice.Controllers
         }
 
         // POST: Movies/Edit/5
+        [Authorize(Roles = "Administrator")]
+
         [HttpPost]
         public async Task<IActionResult> Edit(int id,Movie movie)
         {
@@ -65,6 +74,8 @@ namespace Box_AM_Ofice.Controllers
         }
 
         // GET: Movies/Delete/5
+        [Authorize(Roles = "Administrator")]
+
         public async Task<IActionResult> Delete(int id)
         {
             await _movies.GetMovie(id);
@@ -72,6 +83,8 @@ namespace Box_AM_Ofice.Controllers
         }
 
         // POST: Movies/Delete/5
+        [Authorize(Roles = "Administrator")]
+
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
