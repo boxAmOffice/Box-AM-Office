@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using boxAmOffice.Models;
 
 namespace Box_AM_Ofice.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220718220923_AddAdmin")]
+    partial class AddAdmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,17 +93,17 @@ namespace Box_AM_Ofice.Migrations
                         {
                             Id = "a18be9c0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5b826361-f477-4f1b-bd2e-52859de1ae4c",
-                            Email = "Administrator@gmail.com",
+                            ConcurrencyStamp = "3eb4c1cb-e457-4194-a10e-0daa458a2b16",
+                            Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "Administrator@gmail.com",
-                            NormalizedUserName = "Administrator",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIpK0NNYx0U9xm5c0tUr/IR2Vm1WONJllnLlx2q1YTcRmqRLRgBKqP6holAdh07dWQ==",
+                            NormalizedEmail = "admin@gmail.com",
+                            NormalizedUserName = "admin",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKotMXGTDFdLD6v8+GSvUiejB21hbsIvVim11qXdPRJAetBRxjsJdJnHGxBvxSssGg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
-                            UserName = "Administrator"
+                            UserName = "admin"
                         });
                 });
 
@@ -135,9 +137,9 @@ namespace Box_AM_Ofice.Migrations
                         new
                         {
                             Id = "ad376a8f",
-                            ConcurrencyStamp = "5188fbb1-6d15-4c60-82d6-9d53dc6fbe57",
-                            Name = "Administrator",
-                            NormalizedName = "Administrator"
+                            ConcurrencyStamp = "b0f091c9-ad7d-4851-b3d5-dc94025416f1",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
                         });
                 });
 
@@ -463,39 +465,39 @@ namespace Box_AM_Ofice.Migrations
                             Id = 1,
                             CinemaId = 1,
                             Description = "This is the Life movie description",
-                            EndDate = new DateTime(2022, 7, 29, 1, 27, 39, 927, DateTimeKind.Local).AddTicks(1784),
+                            EndDate = new DateTime(2022, 7, 29, 1, 9, 22, 909, DateTimeKind.Local).AddTicks(7935),
                             ImageURL = "",
                             MovieCategory = 4,
                             Name = "Life",
                             Price = 39.5,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 9, 1, 27, 39, 924, DateTimeKind.Local).AddTicks(6220)
+                            StartDate = new DateTime(2022, 7, 9, 1, 9, 22, 907, DateTimeKind.Local).AddTicks(4083)
                         },
                         new
                         {
                             Id = 2,
                             CinemaId = 2,
                             Description = "The untold story of one twelve-year-old's dream to become the world's greatest supervillain.",
-                            EndDate = new DateTime(2022, 7, 29, 1, 27, 39, 927, DateTimeKind.Local).AddTicks(3110),
+                            EndDate = new DateTime(2022, 7, 29, 1, 9, 22, 909, DateTimeKind.Local).AddTicks(9481),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Minions.jpg",
                             MovieCategory = 2,
                             Name = "Minions: The Rise of Gru",
                             Price = 25.989999999999998,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 9, 1, 27, 39, 927, DateTimeKind.Local).AddTicks(3096)
+                            StartDate = new DateTime(2022, 7, 9, 1, 9, 22, 909, DateTimeKind.Local).AddTicks(9465)
                         },
                         new
                         {
                             Id = 3,
                             CinemaId = 3,
                             Description = "Ivan sets off on a dangerous mission into Syria to save his ex-commander Grey after his capture by ISIS. With the help of U.S. military patrols, he succeeds in freeing Grey and attempts to escape the country while being hunted by terrorists.",
-                            EndDate = new DateTime(2022, 7, 29, 1, 27, 39, 927, DateTimeKind.Local).AddTicks(3118),
+                            EndDate = new DateTime(2022, 7, 29, 1, 9, 22, 909, DateTimeKind.Local).AddTicks(9489),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Infiltration.png",
                             MovieCategory = 1,
                             Name = "Infiltration",
                             Price = 29.989999999999998,
                             ProducerId = 2,
-                            StartDate = new DateTime(2022, 7, 9, 1, 27, 39, 927, DateTimeKind.Local).AddTicks(3115)
+                            StartDate = new DateTime(2022, 7, 9, 1, 9, 22, 909, DateTimeKind.Local).AddTicks(9486)
                         });
                 });
 

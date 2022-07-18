@@ -37,8 +37,8 @@ namespace eTickets.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "Administrator")]
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> Create(Cinema cinema)
 
