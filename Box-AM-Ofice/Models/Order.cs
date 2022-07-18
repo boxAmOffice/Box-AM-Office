@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Box_AM_Ofice.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace boxAmOffice.Models
 
         public string UserId { get; set; }
         [ForeignKey(nameof(UserId))]
-       // public ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; }
 
         public List<OrderItem> OrderItems { get; set; }
     }
