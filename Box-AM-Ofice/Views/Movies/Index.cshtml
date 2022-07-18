@@ -7,8 +7,12 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
-                        }
+    @if(User.IsInRole("Administrator"))
+    {
+        <a asp-action="Create">Create New</a>
+    }
+    
+                        
 </p>
 <table class="table">
     <thead>
@@ -73,13 +77,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Producer.Bio)
             </td>
-             @if (signInManager.IsSignedIn(User) && (User.IsInRole("Administrator")))
+             @if (User.IsInRole("Administrator"))
                         { 
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                <a asp-action="AllMovies" asp-route-id="@item.Id">AllMovies</a>
+                @*<a asp-action="AllMovies" asp-route-id="@item.Id">AllMovies</a>*@
             </td>
                         }
         </tr>
