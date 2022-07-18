@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using boxAmOffice.Models;
 
 namespace Box_AM_Ofice.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220718161320_seedidentity")]
+    partial class seedidentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +39,6 @@ namespace Box_AM_Ofice.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -91,13 +90,13 @@ namespace Box_AM_Ofice.Migrations
                         {
                             Id = "abcbe9c0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8d8ffe15-e1f4-4768-a416-be17343dc565",
+                            ConcurrencyStamp = "2fa7a8d0-c287-420b-b596-ef18497e686b",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJg76zoNFyzZK/UvBEwtcsZZ73aVNJ5Yf9otHcFgOYmjIIyQS908YpvXw0KqTtUXgA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENZT64rBbjzvE20q3vuujJdeBuP3irKnN9mjOfhY4dOfSPxx7R9ehZGgx2opTI7bnQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -135,7 +134,7 @@ namespace Box_AM_Ofice.Migrations
                         new
                         {
                             Id = "ad376a8ff",
-                            ConcurrencyStamp = "1722ce13-a0da-4234-85b4-5c100a91bd44",
+                            ConcurrencyStamp = "7a33ac2a-a550-464d-b4cb-0d89d5ffbf8b",
                             Name = "Administrator",
                             NormalizedName = "Admin"
                         },
@@ -396,13 +395,13 @@ namespace Box_AM_Ofice.Migrations
                             Id = 1,
                             CinemaId = 1,
                             Description = "This is the Life movie description",
-                            EndDate = new DateTime(2022, 7, 28, 21, 22, 6, 371, DateTimeKind.Local).AddTicks(8651),
+                            EndDate = new DateTime(2022, 7, 28, 19, 13, 19, 271, DateTimeKind.Local).AddTicks(2781),
                             ImageURL = "",
                             MovieCategory = 4,
                             Name = "Life",
                             Price = 39.5,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 8, 21, 22, 6, 367, DateTimeKind.Local).AddTicks(1575)
+                            StartDate = new DateTime(2022, 7, 8, 19, 13, 19, 260, DateTimeKind.Local).AddTicks(9598)
                         });
                 });
 
