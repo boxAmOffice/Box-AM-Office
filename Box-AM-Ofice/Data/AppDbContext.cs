@@ -1,4 +1,5 @@
 ﻿using Box_AM_Ofice.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -210,7 +211,55 @@ namespace boxAmOffice.Models
             modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Movie).WithMany(am => am.Actors_Movies).HasForeignKey(m => m.MovieId);
             modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Actor).WithMany(am => am.Actors_Movies).HasForeignKey(m => m.ActorId);
 
+            //any unique string id
+            const string ADMIN_ID = "abcbe9c0";
+            const string ADMIN_ROLE_ID = "ad376a8ff";
+
+            // create an Admin role
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
+            {
+                Id = ADMIN_ROLE_ID,
+                Name = "Administrator",
+                NormalizedName = "Admin"
+            });
+
+            //create a User
+           var hasher = new PasswordHasher<ApplicationUser>();
+            modelBuilder.Entity<ApplicationUser>().HasData(new ApplicationUser
+            {
+                Id = ADMIN_ID,
+                UserName = "admin",
+                NormalizedUserName = "admin",
+                Email = "admin@gmail.com",
+                NormalizedEmail = "admin@gmail.com",
+                EmailConfirmed = false,
+                PasswordHash = hasher.HashPassword(null, "@dmin123"),
+                SecurityStamp = string.Empty
+            });
+
+            //assign that user to the admin role
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = ADMIN_ROLE_ID,
+                UserId = ADMIN_ID
+            });
+
+            SeedRoles(modelBuilder, "Administrator");
+
         }
+
+        private void SeedRoles(ModelBuilder modelBuilder, string roleName)
+        {
+            var role = new IdentityRole
+            {
+                Id = roleName.ToLower(),
+                Name = roleName,
+                NormalizedName = roleName.ToUpper(),
+                ConcurrencyStamp = Guid.Empty.ToString()
+            };
+            modelBuilder.Entity<IdentityRole>().HasData(role);
+        
+    }
 
 
     }

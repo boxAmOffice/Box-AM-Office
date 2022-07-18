@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using boxAmOffice.Models;
 
 namespace Box_AM_Ofice.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220718161320_seedidentity")]
+    partial class seedidentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +39,6 @@ namespace Box_AM_Ofice.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -91,13 +90,13 @@ namespace Box_AM_Ofice.Migrations
                         {
                             Id = "abcbe9c0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8d8ffe15-e1f4-4768-a416-be17343dc565",
+                            ConcurrencyStamp = "2fa7a8d0-c287-420b-b596-ef18497e686b",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJg76zoNFyzZK/UvBEwtcsZZ73aVNJ5Yf9otHcFgOYmjIIyQS908YpvXw0KqTtUXgA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENZT64rBbjzvE20q3vuujJdeBuP3irKnN9mjOfhY4dOfSPxx7R9ehZGgx2opTI7bnQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -135,7 +134,7 @@ namespace Box_AM_Ofice.Migrations
                         new
                         {
                             Id = "ad376a8ff",
-                            ConcurrencyStamp = "1722ce13-a0da-4234-85b4-5c100a91bd44",
+                            ConcurrencyStamp = "7a33ac2a-a550-464d-b4cb-0d89d5ffbf8b",
                             Name = "Administrator",
                             NormalizedName = "Admin"
                         },
@@ -287,44 +286,9 @@ namespace Box_AM_Ofice.Migrations
                         new
                         {
                             Id = 1,
-                            Bio = "Is an American actor and comedian",
-                            FullName = "Steven John",
-                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/StevenJohn.jpg"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Bio = "Is an Belgian actor",
-                            FullName = "Van Damme",
-                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Van_Damme.jpg"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Bio = "Is an American actress and singer",
-                            FullName = "Taraji Penda Henson",
-                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Taraji_Henson.jpg"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Bio = "Kristina Asmus was born Kristina Igorevna Myasnikova on April 14, 1988, in Kaliningrad",
-                            FullName = "Kristina Asmus",
-                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Kristina_Asmus.jpg"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Bio = "alil Asretov was born on February 26, 1994 in Makhachkala, Republic of Dagestan, Russia.",
-                            FullName = "Jalil Asretov",
-                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Jalil_Asretov.png"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Bio = "Sergey Borisov was born on April 4, 1975 in the USSR. He is an actor",
-                            FullName = "Sergey Borisov",
-                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Sergey_Borisov.png"
+                            Bio = "This is the Bio of the first actor",
+                            FullName = "Actor 1",
+                            ProfilePictureURL = ""
                         });
                 });
 
@@ -347,31 +311,6 @@ namespace Box_AM_Ofice.Migrations
                         {
                             ActorId = 1,
                             MovieId = 1
-                        },
-                        new
-                        {
-                            ActorId = 2,
-                            MovieId = 1
-                        },
-                        new
-                        {
-                            ActorId = 3,
-                            MovieId = 1
-                        },
-                        new
-                        {
-                            ActorId = 4,
-                            MovieId = 2
-                        },
-                        new
-                        {
-                            ActorId = 5,
-                            MovieId = 2
-                        },
-                        new
-                        {
-                            ActorId = 6,
-                            MovieId = 2
                         });
                 });
 
@@ -402,23 +341,9 @@ namespace Box_AM_Ofice.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "TAJ Cinemas is the first to introduce the latest in high-tech services to movie-goers such as an online ticketing function to avoid queues",
-                            Logo = "https://sultan.blob.core.windows.net/attac/Taj.png",
-                            Name = "Taj Cinemas"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "The focus of Prime Cinemas is all about our guests and the convenience for local people – this is YOUR local neighborhood cinema!",
-                            Logo = "https://sultan.blob.core.windows.net/attac/Prime.png",
-                            Name = "Prime Cinemas Abdali"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "The focus of Prime Cinemas is all about our guests and the convenience for local people – this is YOUR local neighborhood cinema!",
-                            Logo = "https://sultan.blob.core.windows.net/attac/Prime.png",
-                            Name = "Prime Cinemas Irbid"
+                            Description = "This is the description of the first cinema",
+                            Logo = "",
+                            Name = "Cinema 1"
                         });
                 });
 
@@ -470,13 +395,13 @@ namespace Box_AM_Ofice.Migrations
                             Id = 1,
                             CinemaId = 1,
                             Description = "This is the Life movie description",
-                            EndDate = new DateTime(2022, 7, 28, 11, 49, 13, 475, DateTimeKind.Local).AddTicks(8754),
+                            EndDate = new DateTime(2022, 7, 28, 19, 13, 19, 271, DateTimeKind.Local).AddTicks(2781),
                             ImageURL = "",
                             MovieCategory = 4,
                             Name = "Life",
                             Price = 39.5,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 8, 11, 49, 13, 469, DateTimeKind.Local).AddTicks(1176)
+                            StartDate = new DateTime(2022, 7, 8, 19, 13, 19, 260, DateTimeKind.Local).AddTicks(9598)
                         });
                 });
 
@@ -556,16 +481,9 @@ namespace Box_AM_Ofice.Migrations
                         new
                         {
                             Id = 1,
-                            Bio = "Kyle Balda is a BAFTA nominated feature animation director working in the industry for 30 years",
-                            FullName = "Kyle Balda",
-                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Kyle_Balda.jpg"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Bio = "Aleksey Aleksandrovich Chadov was born on September 2, 1981, in Solntsevo, Moscow region, RSFSR, USSR, now a suburb of Moscow, Russia.",
-                            FullName = "Aleksey Chadov",
-                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Chadov_Aleksey.jpg"
+                            Bio = "This is the Bio of the first actor",
+                            FullName = "Producer 1",
+                            ProfilePictureURL = ""
                         });
                 });
 

@@ -3,6 +3,7 @@ using Box_AM_Ofice.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eTickets.Controllers
 {
@@ -20,10 +21,14 @@ namespace eTickets.Controllers
             return View(alldata);
         }
         // Get: Cinemas/Create
+        [Authorize(Roles = "Administrator")]
+
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize(Roles = "Administrator")]
+
         [HttpPost]
         public async Task<IActionResult> Create(Cinema cinema)
 
@@ -44,12 +49,15 @@ namespace eTickets.Controllers
             return View(CinemaDetails);
         }
         // Get: Cinemas/Edit
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int id)
         {
             var CinemaDetails = await _service.GetById(id);
             if (CinemaDetails == null) return NotFound();
             return View(CinemaDetails);
         }
+        [Authorize(Roles = "Administrator")]
+
         [HttpPost]
         public async Task<IActionResult> Edit(int id,Cinema cinema)
 
@@ -62,12 +70,16 @@ namespace eTickets.Controllers
             return RedirectToAction(nameof(Index));
         }
         // Get: Cinema/Delete/1
+        [Authorize(Roles = "Administrator")]
+
         public async Task<IActionResult> Delete(int id)
         {
             var CinemaDetails = await _service.GetById(id);
             if (CinemaDetails == null) return NotFound();
             return View(CinemaDetails);
         }
+        [Authorize(Roles = "Administrator")]
+
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
 
