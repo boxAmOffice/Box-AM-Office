@@ -68,6 +68,19 @@ namespace boxAmOffice.Models
                           CinemaId = 3,
                           ProducerId = 2,
                           MovieCategory = MovieCategory.Action
+                      },
+                      new Movie
+                      {
+                          Id = 4,
+                          Name = "Around the World in 80 Days",
+                          Description = "A bookish marmoset embarks on a wild adventure to travel around the planet in 80 days after accepting a challenge from a greedy frog.",
+                          Price = 22.99,
+                          ImageURL = "https://sultan.blob.core.windows.net/attac/Around-the-World-in-80-Days.jpg",
+                          StartDate = DateTime.Now.AddDays(-10),
+                          EndDate = DateTime.Now.AddDays(10),
+                          CinemaId = 3,
+                          ProducerId = 2,
+                          MovieCategory = MovieCategory.Action
                       }
 
                         );

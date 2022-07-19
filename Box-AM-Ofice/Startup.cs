@@ -4,6 +4,7 @@ using Box_AM_Ofice.Models.Services;
 using boxAmOffice.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -39,7 +40,8 @@ namespace Box_AM_Ofice
             }).AddEntityFrameworkStores<AppDbContext>();
 
             services.AddControllersWithViews();
-
+            services.AddMemoryCache();
+            services.AddSession();
             services.AddAuthentication();
             services.AddAuthorization();
 
@@ -48,6 +50,10 @@ namespace Box_AM_Ofice
             services.AddTransient<ICinema, CinemaService>();
             services.AddTransient<IMovie, MovieService>();
             services.AddTransient<IUser, UserService>();
+            services.AddScoped<IOrder, OrdersService>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<ShoppingCart>();
 
         }
 
@@ -68,6 +74,7 @@ namespace Box_AM_Ofice
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthentication();
 

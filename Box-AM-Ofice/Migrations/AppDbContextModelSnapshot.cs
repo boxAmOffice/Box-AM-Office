@@ -91,13 +91,13 @@ namespace Box_AM_Ofice.Migrations
                         {
                             Id = "a18be9c0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5b826361-f477-4f1b-bd2e-52859de1ae4c",
+                            ConcurrencyStamp = "646dfbd4-866e-4967-bca1-2b3d98b37729",
                             Email = "Administrator@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "Administrator@gmail.com",
                             NormalizedUserName = "Administrator",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIpK0NNYx0U9xm5c0tUr/IR2Vm1WONJllnLlx2q1YTcRmqRLRgBKqP6holAdh07dWQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF4Bkex3hmXg9AGFRvCXXKegvihubkPc8ZNBXt8RgmBBbWoO3hicrmDFirQItqtGFw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -135,7 +135,7 @@ namespace Box_AM_Ofice.Migrations
                         new
                         {
                             Id = "ad376a8f",
-                            ConcurrencyStamp = "5188fbb1-6d15-4c60-82d6-9d53dc6fbe57",
+                            ConcurrencyStamp = "dcf1f1f1-e34c-4642-b07b-36102711e643",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         });
@@ -463,39 +463,52 @@ namespace Box_AM_Ofice.Migrations
                             Id = 1,
                             CinemaId = 1,
                             Description = "This is the Life movie description",
-                            EndDate = new DateTime(2022, 7, 29, 1, 27, 39, 927, DateTimeKind.Local).AddTicks(1784),
+                            EndDate = new DateTime(2022, 7, 29, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(5399),
                             ImageURL = "",
                             MovieCategory = 4,
                             Name = "Life",
                             Price = 39.5,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 9, 1, 27, 39, 924, DateTimeKind.Local).AddTicks(6220)
+                            StartDate = new DateTime(2022, 7, 9, 20, 21, 20, 171, DateTimeKind.Local).AddTicks(6579)
                         },
                         new
                         {
                             Id = 2,
                             CinemaId = 2,
                             Description = "The untold story of one twelve-year-old's dream to become the world's greatest supervillain.",
-                            EndDate = new DateTime(2022, 7, 29, 1, 27, 39, 927, DateTimeKind.Local).AddTicks(3110),
+                            EndDate = new DateTime(2022, 7, 29, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8331),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Minions.jpg",
                             MovieCategory = 2,
                             Name = "Minions: The Rise of Gru",
                             Price = 25.989999999999998,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 9, 1, 27, 39, 927, DateTimeKind.Local).AddTicks(3096)
+                            StartDate = new DateTime(2022, 7, 9, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8302)
                         },
                         new
                         {
                             Id = 3,
                             CinemaId = 3,
                             Description = "Ivan sets off on a dangerous mission into Syria to save his ex-commander Grey after his capture by ISIS. With the help of U.S. military patrols, he succeeds in freeing Grey and attempts to escape the country while being hunted by terrorists.",
-                            EndDate = new DateTime(2022, 7, 29, 1, 27, 39, 927, DateTimeKind.Local).AddTicks(3118),
+                            EndDate = new DateTime(2022, 7, 29, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8345),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Infiltration.png",
                             MovieCategory = 1,
                             Name = "Infiltration",
                             Price = 29.989999999999998,
                             ProducerId = 2,
-                            StartDate = new DateTime(2022, 7, 9, 1, 27, 39, 927, DateTimeKind.Local).AddTicks(3115)
+                            StartDate = new DateTime(2022, 7, 9, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8339)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CinemaId = 3,
+                            Description = "A bookish marmoset embarks on a wild adventure to travel around the planet in 80 days after accepting a challenge from a greedy frog.",
+                            EndDate = new DateTime(2022, 7, 29, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8355),
+                            ImageURL = "https://sultan.blob.core.windows.net/attac/Around-the-World-in-80-Days.jpg",
+                            MovieCategory = 1,
+                            Name = "Around the World in 80 Days",
+                            Price = 22.989999999999998,
+                            ProducerId = 2,
+                            StartDate = new DateTime(2022, 7, 9, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8351)
                         });
                 });
 
