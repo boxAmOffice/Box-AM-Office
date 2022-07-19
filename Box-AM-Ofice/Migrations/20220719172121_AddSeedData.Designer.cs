@@ -10,8 +10,8 @@ using boxAmOffice.Models;
 namespace Box_AM_Ofice.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220718221901_ChangeAdminToAdministrator")]
-    partial class ChangeAdminToAdministrator
+    [Migration("20220719172121_AddSeedData")]
+    partial class AddSeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -93,17 +93,17 @@ namespace Box_AM_Ofice.Migrations
                         {
                             Id = "a18be9c0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "148dbce7-0913-4db4-9d7e-1660c2c0c59b",
-                            Email = "admin@gmail.com",
+                            ConcurrencyStamp = "646dfbd4-866e-4967-bca1-2b3d98b37729",
+                            Email = "Administrator@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "admin@gmail.com",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAENdBHPdLSPoOBflYPaGnjWd997MMgJiRVOKMI6LYtKCpfuFfZKlePXzdfsZvs2Uxwg==",
+                            NormalizedEmail = "Administrator@gmail.com",
+                            NormalizedUserName = "Administrator",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF4Bkex3hmXg9AGFRvCXXKegvihubkPc8ZNBXt8RgmBBbWoO3hicrmDFirQItqtGFw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
-                            UserName = "admin"
+                            UserName = "Administrator"
                         });
                 });
 
@@ -137,7 +137,7 @@ namespace Box_AM_Ofice.Migrations
                         new
                         {
                             Id = "ad376a8f",
-                            ConcurrencyStamp = "58a4c974-e61b-4e8b-ab8a-fa769ede1ef3",
+                            ConcurrencyStamp = "dcf1f1f1-e34c-4642-b07b-36102711e643",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         });
@@ -465,39 +465,52 @@ namespace Box_AM_Ofice.Migrations
                             Id = 1,
                             CinemaId = 1,
                             Description = "This is the Life movie description",
-                            EndDate = new DateTime(2022, 7, 29, 1, 19, 0, 50, DateTimeKind.Local).AddTicks(227),
+                            EndDate = new DateTime(2022, 7, 29, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(5399),
                             ImageURL = "",
                             MovieCategory = 4,
                             Name = "Life",
                             Price = 39.5,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 9, 1, 19, 0, 47, DateTimeKind.Local).AddTicks(1962)
+                            StartDate = new DateTime(2022, 7, 9, 20, 21, 20, 171, DateTimeKind.Local).AddTicks(6579)
                         },
                         new
                         {
                             Id = 2,
                             CinemaId = 2,
                             Description = "The untold story of one twelve-year-old's dream to become the world's greatest supervillain.",
-                            EndDate = new DateTime(2022, 7, 29, 1, 19, 0, 50, DateTimeKind.Local).AddTicks(1800),
+                            EndDate = new DateTime(2022, 7, 29, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8331),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Minions.jpg",
                             MovieCategory = 2,
                             Name = "Minions: The Rise of Gru",
                             Price = 25.989999999999998,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 9, 1, 19, 0, 50, DateTimeKind.Local).AddTicks(1784)
+                            StartDate = new DateTime(2022, 7, 9, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8302)
                         },
                         new
                         {
                             Id = 3,
                             CinemaId = 3,
                             Description = "Ivan sets off on a dangerous mission into Syria to save his ex-commander Grey after his capture by ISIS. With the help of U.S. military patrols, he succeeds in freeing Grey and attempts to escape the country while being hunted by terrorists.",
-                            EndDate = new DateTime(2022, 7, 29, 1, 19, 0, 50, DateTimeKind.Local).AddTicks(1812),
+                            EndDate = new DateTime(2022, 7, 29, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8345),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Infiltration.png",
                             MovieCategory = 1,
                             Name = "Infiltration",
                             Price = 29.989999999999998,
                             ProducerId = 2,
-                            StartDate = new DateTime(2022, 7, 9, 1, 19, 0, 50, DateTimeKind.Local).AddTicks(1805)
+                            StartDate = new DateTime(2022, 7, 9, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8339)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CinemaId = 3,
+                            Description = "A bookish marmoset embarks on a wild adventure to travel around the planet in 80 days after accepting a challenge from a greedy frog.",
+                            EndDate = new DateTime(2022, 7, 29, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8355),
+                            ImageURL = "https://sultan.blob.core.windows.net/attac/Around-the-World-in-80-Days.jpg",
+                            MovieCategory = 1,
+                            Name = "Around the World in 80 Days",
+                            Price = 22.989999999999998,
+                            ProducerId = 2,
+                            StartDate = new DateTime(2022, 7, 9, 20, 21, 20, 176, DateTimeKind.Local).AddTicks(8351)
                         });
                 });
 
