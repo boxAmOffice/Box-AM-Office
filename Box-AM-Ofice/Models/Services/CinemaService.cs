@@ -33,6 +33,33 @@ namespace Box_AM_Ofice.Models.Services
 
         }
 
+        public async Task<List<Movie>> GetMovies(int cinemaId)
+        {
+            var moives = _context.Cinemas.Find(cinemaId);
+            return moives.Movies;
+
+
+            //return await _context.Cinemas.Select(C => new Movie
+            //{
+
+            //    Name = C.Name,
+            //    Description=C.Description,
+
+            //    Cinema = C.Movies.Select(p => new cinemaId
+
+            //    {
+            //        Id = p.Id,
+            //        Name = p.Name,
+            //        Description=p.Description
+
+
+
+
+            //    }).ToList()
+
+            //}).FirstOrDefaultAsync(x => x.Id == cinemaId);
+        }
+
         public async  Task RemoveCinema (int id)
         {
             var result = await _context.Cinemas.FirstOrDefaultAsync(n => n.Id == id);
