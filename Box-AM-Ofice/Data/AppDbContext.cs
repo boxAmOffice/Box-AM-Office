@@ -386,31 +386,31 @@ namespace boxAmOffice.Models
                 new Actor_Movie()
                 {
                     ActorId = 1,
-                    MovieId = 1
+                    MovieId = 2
                 },
                 new Actor_Movie()
                 {
                     ActorId = 2,
-                    MovieId = 1
+                    MovieId = 2
                 }, new Actor_Movie()
                 {
                     ActorId = 3,
-                    MovieId = 1
+                    MovieId = 2
                 },
                  new Actor_Movie()
                  {
                      ActorId = 4,
-                     MovieId = 2
+                     MovieId = 3
                  },
                  new Actor_Movie()
                  {
                      ActorId = 5,
-                     MovieId = 2
+                     MovieId = 3
                  },
                  new Actor_Movie()
                  {
                      ActorId = 6,
-                     MovieId = 2
+                     MovieId = 3
                  },
                  new Actor_Movie()
                  {

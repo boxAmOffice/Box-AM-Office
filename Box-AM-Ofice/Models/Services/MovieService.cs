@@ -46,21 +46,13 @@ namespace Box_AM_Ofice.Models.Services
 
         public async Task<Movie> GetMovie(int Id)
         {
-            return await _context.Movies.Select(movie => new Movie
-            {
-                Id = movie.Id,
-                Name = movie.Name,
-                Actors_Movies = movie.Actors_Movies,
-                Description = movie.Description,
-                Price = movie.Price,
-                StartDate = movie.StartDate,
-                EndDate = movie.EndDate,
-                ImageURL = movie.ImageURL,
-                MovieCategory = movie.MovieCategory,
-                ProducerId = movie.ProducerId,
-                CinemaId = movie.CinemaId
+            var movieDetails = await _context.Movies
+                .Include(c => c.Cinema)
+                .Include(p => p.Producer)
+                .Include(am => am.Actors_Movies).ThenInclude(a => a.Actor)
+                .FirstOrDefaultAsync(n => n.Id == Id);
 
-            }).FirstOrDefaultAsync(x => x.Id == Id);
+            return movieDetails;
         }
 
         public async Task<List<Movie>> GetMovies()
