@@ -10,6 +10,8 @@ namespace boxAmOffice.Models
         public int Id { get; set; }
 
         public Movie Movie { get; set; }
+        public int MovieId { get; set; }
+
         public int Amount { get; set; }
 
 
