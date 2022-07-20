@@ -41,7 +41,7 @@ namespace Box_AM_Ofice.Models.Services
                 shoppingCartItem = new ShoppingCartItem()
                 {
                     ShoppingCartId = ShoppingCartId,
-                    Movie = movie,
+                    MovieId = movie.Id,
                     Amount = 1
                 };
 

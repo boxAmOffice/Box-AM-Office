@@ -36,7 +36,7 @@ namespace boxAmOffice.Models
                             Name = "Life",
                             Description = "This is the Life movie description",
                             Price = 39.50,
-                            ImageURL = "",
+                            ImageURL = "https://sultan.blob.core.windows.net/attac/life.jpg",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(10),
                             CinemaId = 1,
