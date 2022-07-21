@@ -1,6 +1,5 @@
 ﻿using Box_AM_Ofice.Models.Interfaces;
 using boxAmOffice.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -27,16 +26,17 @@ namespace Box_AM_Ofice.Controllers
             if (!ModelState.IsValid) return View(login);
 
             var user = await _userService.Login(login.UserName, login.Password);
-            if(user == null)
-            { 
+            if (user == null)
+            {
                 TempData["Error"] = "Wrong credentials. Please, try again!";
                 return View(login);
             }
-            return RedirectToAction("Index","Movies");
+            return RedirectToAction("Index", "Movies");
         }
-        public IActionResult Register() {
+        public IActionResult Register()
+        {
             return View();
-                }
+        }
 
         [HttpPost]
         public async Task<IActionResult> Register(Register register)
@@ -51,14 +51,14 @@ namespace Box_AM_Ofice.Controllers
             }
             if (ModelState.IsValid)
             {
-                return View("RegisterCompleted"); 
+                return View("RegisterCompleted");
             }
             return View(register);
         }
         public async Task<IActionResult> Logout()
         {
             await _userService.Logout();
-            return RedirectToAction("Index", "Movies");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -14,22 +14,34 @@
 </head>
 <body>
     <main>
-            <button class="openbtn" onclick="openNav()">&#9776;</span><span class="am">AM</span> BOX OFFICE</button>
-            <div id="mySidebar" class="sidebar">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas</a>
-          <a asp-controller="Movies" asp-action="Index"><i class="bi bi-film"></i> Movies</a>
-          <a asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers</a>
-          <a asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors</a>
+        <button class="openbtn">&#9776;<span class="am">AM</span> BOX OFFICE</button>
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn">&times;</a>
+            <a asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas</a>
+            <a asp-controller="Movies" asp-action="Index"><i class="bi bi-film"></i> Movies</a>
+            <a asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers</a>
+            <a asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors</a>
         </div>
         
         <div id="main">
             <div class="nav">
-                 <form class="form-inline my-2 my-lg-0" asp-controller="Movies" asp-action="Filter" style="padding-right: 25px;">
+				<form class="form-inline my-2 my-lg-0" asp-controller="Movies" asp-action="Filter" style="padding-right: 25px;">
                    <input name="searchString" type="text" class="form-control" placeholder="Search for a movie..." aria-label="Recipient's username" aria-describedby="button-addon2">
                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                   </form>
-                <partial name="_Identity.cshtml" />
+                 @if(!User.Identity.IsAuthenticated){
+                    <a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                    <span style="padding: 5px;"></span>
+                    <a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Account" asp-action="Register"><i class="bi bi-person-plus"></i> Register</a>
+                 }
+                 else
+                 {
+                     <form asp-controller="Account" asp-action="Logout">
+                        <button class="btn btn-outline-danger my-2 my-sm-0">
+                        <i  class="bi bi-box-arrow-in-right"></i> Logout
+                        </button>
+                    </form>
+                 }
             </div>
         </div>
 
@@ -45,8 +57,27 @@
 <div class="movies">
     @foreach (var item in Model)
     {
-       <div>
+       <div style=" display: flex;
+                    flex-direction: column; 
+                    justify-content: center;
+                    align-items: center;
+                    margin: 50px 30px;">
+
+        <p style="font-size: 20px;
+                  color: #eee;">@item.Name</p>
+
+           <p style="color: #eee;">@item.Cinema.Name</p>
+
            <img src="@item.ImageURL" width="200px" alt="@item.Name">
+           
+           <div>
+               <a class="btn btn-outline-primary float-right"  asp-controller="Movies" asp-action="Details" asp-route-id="@item.Id">
+                    <i class="bi bi-eye-fill"></i> Show Details
+                 </a>
+                <a class="btn btn-outline-success " asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id">
+                     <i class="bi bi-cart-plus"></i> Add to Cart
+                 </a>
+           </div>
        </div>
     }
 </div>
@@ -56,10 +87,15 @@
 </body>
 <script>
 
+document.getElementsByClassName("openbtn")[0].addEventListener("click", openNav);
+document.getElementsByClassName("closebtn")[0].addEventListener("click", closeNav);
+
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
+  this.style.border = "none !important";
+  this.style.outline = "none !important";
 }
 
 /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
