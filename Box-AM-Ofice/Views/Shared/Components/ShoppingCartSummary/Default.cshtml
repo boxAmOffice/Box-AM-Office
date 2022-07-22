@@ -3,8 +3,21 @@
 @if (Model > 0)
 {
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-controller="Orders" asp-action="ShoppingCart">
+        <a class="mycart nav-link text-dark" asp-controller="Orders" asp-action="ShoppingCart">
             <i class="bi bi-cart4"></i> @Model
         </a>
     </li>
 }
+
+<style>
+.mycart{
+    position:absolute;
+    font-size: 30px;
+    top: 100px;
+    right: 60px;
+    
+}
+.mycart:hover{
+    border-bottom: 1px solid #111;
+}
+</style>
