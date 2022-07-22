@@ -8,16 +8,19 @@ using Microsoft.EntityFrameworkCore;
 using boxAmOffice.Models;
 using Box_AM_Ofice.Models.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using NToastNotify;
 
 namespace Box_AM_Ofice.Controllers
 {
     public class ProducersController : Controller
     {
         private readonly IProducer _producer;
+        private readonly IToastNotification _toastNotification;
 
-        public ProducersController(IProducer producer)
+        public ProducersController(IProducer producer,IToastNotification toastNotification)
         {
             _producer = producer;
+            _toastNotification = toastNotification;
         }
 
         // GET: Producers
@@ -59,6 +62,7 @@ namespace Box_AM_Ofice.Controllers
             if (ModelState.IsValid)
             {
                 await _producer.CreateProducer(producer);
+                _toastNotification.AddSuccessToastMessage("Producer created successfully");
                 return RedirectToAction(nameof(Index));
             }
             return View(producer);
@@ -95,7 +99,7 @@ namespace Box_AM_Ofice.Controllers
             if (ModelState.IsValid)
             {
                 await _producer.UpdateProducer(id, producer);
-
+                _toastNotification.AddSuccessToastMessage("Producer edited successfully");
                 return RedirectToAction(nameof(Index));
             }
 
@@ -129,6 +133,7 @@ namespace Box_AM_Ofice.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _producer.DeleteProducer(id);
+            _toastNotification.AddSuccessToastMessage("Producer deleted successfully");
             return RedirectToAction(nameof(Index));
         }
     }
