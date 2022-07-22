@@ -4,6 +4,10 @@ namespace boxAmOffice.Models
 {
     public class Register
     {
+        [Display(Name = "Full Name")]
+        [Required(ErrorMessage = "Full Name is required")]
+        public string FullName { get; set; }
+
         [Display(Name = "User name")]
         [Required(ErrorMessage = "User name is required")]
         public string UserName { get; set; }

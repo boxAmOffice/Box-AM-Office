@@ -23,6 +23,7 @@ namespace Box_AM_Ofice.Models.Services
             var user = new ApplicationUser
             {
                 UserName = register.UserName,
+                FullName = register.FullName,
                 Email = register.EmailAddress
             };
 
