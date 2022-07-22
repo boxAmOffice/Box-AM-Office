@@ -4,21 +4,31 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
 
 namespace eTickets.Controllers
 {
     public class CinemasController : Controller
     {
         private readonly ICinema _service;
-        public CinemasController(ICinema service)
+        private readonly IMovie _movies;
+
+        public CinemasController(ICinema service, IMovie movies)
         {
             _service = service;
+            _movies = movies;
 
         }
         public async Task<IActionResult> Index()
         {
             var alldata = await _service.GetAll();
             return View(alldata);
+        }
+
+        public async Task<IActionResult> AllMovies()
+        {
+            List<Movie> allmovies = await _movies.GetMovies();
+            return View(allmovies);
         }
         // Get: Cinemas/Create
         [Authorize(Roles = "Administrator")]
@@ -27,8 +37,8 @@ namespace eTickets.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "Administrator")]
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> Create(Cinema cinema)
 

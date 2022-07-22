@@ -11,5 +11,6 @@ namespace Box_AM_Ofice.Models.Interfaces
         Task AddCinema (Cinema cinema);
         Task<Cinema> Update(int id, Cinema newCinema);
         Task RemoveCinema (int id);
+        Task<List<Movie>> GetMovies(int cinemaId);
     }
 }

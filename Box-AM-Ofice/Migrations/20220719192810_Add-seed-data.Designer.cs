@@ -10,8 +10,8 @@ using boxAmOffice.Models;
 namespace Box_AM_Ofice.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220718211135_AddSeedData")]
-    partial class AddSeedData
+    [Migration("20220719192810_Add-seed-data")]
+    partial class Addseeddata
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -87,6 +87,24 @@ namespace Box_AM_Ofice.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "a18be9c0",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a05e6c48-5b75-4c70-a3b2-0a2bf1eddfd7",
+                            Email = "Administrator@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "Administrator@gmail.com",
+                            NormalizedUserName = "Administrator",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIYrCVyZ26ZlJJJ9TAyMIAH8FmBfi8bzTkrXm5Xs9wyH+OTGCLiVzpjgpFdVCYznmw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "Administrator"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -114,6 +132,15 @@ namespace Box_AM_Ofice.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "ad376a8f",
+                            ConcurrencyStamp = "33975663-e588-40e9-b15b-fb9954da9d47",
+                            Name = "Administrator",
+                            NormalizedName = "Administrator"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -199,6 +226,13 @@ namespace Box_AM_Ofice.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "a18be9c0",
+                            RoleId = "ad376a8f"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -286,6 +320,83 @@ namespace Box_AM_Ofice.Migrations
                             Bio = "Sergey Borisov was born on April 4, 1975 in the USSR. He is an actor",
                             FullName = "Sergey Borisov",
                             ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Sergey_Borisov.png"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Bio = "Thomas Cruise Mapother IV(born July 3, 1962) is an American actor and producer.One of the world's highest-paid actors,[1] he has received various accolades.",
+                            FullName = "Thomas Cruise",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Tom-Cruise.jpg"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Bio = "Irving Rameses Ving Rhames is an American actor. He is best known for his starring role as IMF Agent Luther Stickell in the Mission: Impossible film series and his supporting role as gang kingpin Marsellus Wallace in Pulp Fiction",
+                            FullName = "Irving Rameses",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Irving-Rameses.jpg"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Bio = "Jeffrey Lynn Goldblum (/ˈɡoʊldbluːm/; born October 22, 1952) is an American actor and musician. He has starred in some of the highest-grossing films of his era, such as Jurassic Park (1993) and Independence Day (1996), as well as their sequels.",
+                            FullName = "Jeff Goldblum",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Jeff-Goldblum.jpg"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Bio = "Sam Neill was born in Omagh, Co. Tyrone, Northern Ireland, to army parents, an English-born mother, Priscilla Beatrice (Ingham), and a New Zealand-born father, Dermot Neill.",
+                            FullName = "Sam Neill",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Sam-Neill.jpg"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Bio = "Steven Allan Spielberg (/ˈspiːlbɜːrɡ/; born December 18, 1946) is an American film director, producer, and screenwriter.[1] A figure of the New Hollywood era, he is the most commercially successful director of all time. ",
+                            FullName = "Steven Spielberg",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Steven-Spielberg.jpg"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Bio = "Thomas Jeffrey Hanks was born in Concord, California, to Janet Marylyn (Frager), a hospital worker, and Amos Mefford Hanks, an itinerant cook. His mother's family, originally surnamed Fraga, was entirely Portuguese, while his father was of mostly English ancestry.",
+                            FullName = "Tom Hanks",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Tom-Hanks.jpg"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Bio = "Timothy Allen Dick was born on June 13, 1953, in Denver, Colorado, to Martha Katherine (Fox) and Gerald M. Dick. ",
+                            FullName = "Tim Allen (I)",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Tim-Allen.jpg"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Bio = "Simu Liu (/ˈsimu ˈlijuː/ SEE-moo LEE-ew;[2] Chinese: 刘思慕; born 19 April 1989) is a Canadian actor, author, and stuntman. He is known for portraying Shang-Chi in the 2021 Marvel Cinematic Universe film Shang-Chi and the Legend of the Ten Rings..",
+                            FullName = "Simu iu",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Simu-iu.jpg"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Bio = "Tony Leung Chiu-wai (Chinese: 梁朝偉, born 27 June 1962) is a Hong Kong actor and singer. He is one of Asia's most successful and internationally recognized actors, and was named as Small Tiger among the Five Tiger Generals of TVB.",
+                            FullName = "Tony Leung Chiu-wai",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Tony-Leung-Chiu-wai.jpg"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Bio = "Christopher Hemsworth AM is an Australian actor. He rose to prominence playing Kim Hyde in the Australian television series Home and Away before beginning a film career in Hollywood.",
+                            FullName = "Chris Hemsworth",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Chris-Hemsworth.jpg"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Bio = "Taika David Cohen ONZM, known professionally as Taika Waititi, is a New Zealand filmmaker, actor, and comedian. He is a recipient of an Academy Award, a BAFTA Award, and a Grammy Award, and has received two nominations at the Primetime Emmy Awards.",
+                            FullName = "Taika Waititi",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Taika-Waititi.jpg"
                         });
                 });
 
@@ -333,6 +444,66 @@ namespace Box_AM_Ofice.Migrations
                         {
                             ActorId = 6,
                             MovieId = 2
+                        },
+                        new
+                        {
+                            ActorId = 7,
+                            MovieId = 5
+                        },
+                        new
+                        {
+                            ActorId = 8,
+                            MovieId = 5
+                        },
+                        new
+                        {
+                            ActorId = 9,
+                            MovieId = 6
+                        },
+                        new
+                        {
+                            ActorId = 10,
+                            MovieId = 6
+                        },
+                        new
+                        {
+                            ActorId = 10,
+                            MovieId = 7
+                        },
+                        new
+                        {
+                            ActorId = 11,
+                            MovieId = 7
+                        },
+                        new
+                        {
+                            ActorId = 12,
+                            MovieId = 8
+                        },
+                        new
+                        {
+                            ActorId = 13,
+                            MovieId = 8
+                        },
+                        new
+                        {
+                            ActorId = 14,
+                            MovieId = 9
+                        },
+                        new
+                        {
+                            ActorId = 15,
+                            MovieId = 9
+                        },
+                        new
+                        {
+                            ActorId = 16,
+                            MovieId = 10
+                        },
+                        new
+                        {
+                            ActorId = 17,
+                            MovieId = 10
                         });
                 });
 
@@ -431,39 +602,130 @@ namespace Box_AM_Ofice.Migrations
                             Id = 1,
                             CinemaId = 1,
                             Description = "This is the Life movie description",
-                            EndDate = new DateTime(2022, 7, 29, 0, 11, 34, 329, DateTimeKind.Local).AddTicks(560),
+                            EndDate = new DateTime(2022, 7, 29, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(4875),
                             ImageURL = "",
                             MovieCategory = 4,
                             Name = "Life",
                             Price = 39.5,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 9, 0, 11, 34, 320, DateTimeKind.Local).AddTicks(9463)
+                            StartDate = new DateTime(2022, 7, 9, 22, 28, 9, 895, DateTimeKind.Local).AddTicks(47)
                         },
                         new
                         {
                             Id = 2,
                             CinemaId = 2,
                             Description = "The untold story of one twelve-year-old's dream to become the world's greatest supervillain.",
-                            EndDate = new DateTime(2022, 7, 29, 0, 11, 34, 329, DateTimeKind.Local).AddTicks(4373),
+                            EndDate = new DateTime(2022, 7, 29, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6102),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Minions.jpg",
                             MovieCategory = 2,
                             Name = "Minions: The Rise of Gru",
                             Price = 25.989999999999998,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 9, 0, 11, 34, 329, DateTimeKind.Local).AddTicks(4338)
+                            StartDate = new DateTime(2022, 7, 9, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6088)
                         },
                         new
                         {
                             Id = 3,
                             CinemaId = 3,
                             Description = "Ivan sets off on a dangerous mission into Syria to save his ex-commander Grey after his capture by ISIS. With the help of U.S. military patrols, he succeeds in freeing Grey and attempts to escape the country while being hunted by terrorists.",
-                            EndDate = new DateTime(2022, 7, 29, 0, 11, 34, 329, DateTimeKind.Local).AddTicks(4394),
+                            EndDate = new DateTime(2022, 7, 29, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6110),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Infiltration.png",
                             MovieCategory = 1,
                             Name = "Infiltration",
                             Price = 29.989999999999998,
                             ProducerId = 2,
-                            StartDate = new DateTime(2022, 7, 9, 0, 11, 34, 329, DateTimeKind.Local).AddTicks(4388)
+                            StartDate = new DateTime(2022, 7, 9, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6107)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CinemaId = 3,
+                            Description = "A bookish marmoset embarks on a wild adventure to travel around the planet in 80 days after accepting a challenge from a greedy frog.",
+                            EndDate = new DateTime(2022, 7, 29, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6116),
+                            ImageURL = "https://sultan.blob.core.windows.net/attac/Around-the-World-in-80-Days.jpg",
+                            MovieCategory = 1,
+                            Name = "Around the World in 80 Days",
+                            Price = 22.989999999999998,
+                            ProducerId = 2,
+                            StartDate = new DateTime(2022, 7, 9, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6113)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CinemaId = 3,
+                            Description = "An American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization.",
+                            EndDate = new DateTime(2022, 7, 24, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6123),
+                            ImageURL = "https://sultan.blob.core.windows.net/attac/Mission-Impossible.png",
+                            MovieCategory = 1,
+                            Name = "Mission: Impossible",
+                            Price = 26.989999999999998,
+                            ProducerId = 3,
+                            StartDate = new DateTime(2022, 7, 14, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6119)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CinemaId = 3,
+                            Description = "Four years after the destruction of Isla Nublar, dinosaurs now live--and hunt--alongside humans all over the world.",
+                            EndDate = new DateTime(2022, 7, 27, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6129),
+                            ImageURL = "https://sultan.blob.core.windows.net/attac/Jurassic-World-Dominion.jpg",
+                            MovieCategory = 1,
+                            Name = "Jurassic World Dominion",
+                            Price = 10.99,
+                            ProducerId = 4,
+                            StartDate = new DateTime(2022, 7, 12, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6127)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CinemaId = 2,
+                            Description = "A decidedly odd couple with ulterior motives convince Dr. Grant to go to Isla Sorna for a holiday, but their unexpected landing startles the island's new inhabitants..",
+                            EndDate = new DateTime(2022, 7, 26, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6135),
+                            ImageURL = "https://sultan.blob.core.windows.net/attac/Jurassic-Park-III.jpg",
+                            MovieCategory = 1,
+                            Name = "Jurassic Park III",
+                            Price = 30.989999999999998,
+                            ProducerId = 5,
+                            StartDate = new DateTime(2022, 7, 17, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6133)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CinemaId = 1,
+                            Description = "A cowboy doll is profoundly threatened and jealous when a new spaceman action figure supplants him as top toy in a boy's bedroom.",
+                            EndDate = new DateTime(2022, 8, 2, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6141),
+                            ImageURL = "https://sultan.blob.core.windows.net/attac/Toy-Story.jpg",
+                            MovieCategory = 2,
+                            Name = "Toy Story",
+                            Price = 10.99,
+                            ProducerId = 6,
+                            StartDate = new DateTime(2022, 7, 5, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6139)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CinemaId = 1,
+                            Description = "Shang-Chi, the master of weaponry-based Kung Fu, is forced to confront his past after being drawn into the Ten Rings organization..",
+                            EndDate = new DateTime(2022, 8, 1, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6147),
+                            ImageURL = "https://sultan.blob.core.windows.net/attac/Shang-Chi.jpg",
+                            MovieCategory = 1,
+                            Name = "Shang-Chi and the Legend of the Ten Rings",
+                            Price = 25.989999999999998,
+                            ProducerId = 7,
+                            StartDate = new DateTime(2022, 7, 6, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6145)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CinemaId = 2,
+                            Description = "A bookish marmoset embarks on a wild adventure to travel around the planet in 80 days after accepting a challenge from a greedy frog.",
+                            EndDate = new DateTime(2022, 8, 7, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6153),
+                            ImageURL = "https://sultan.blob.core.windows.net/attac/Thor-Ragnarok.jpg",
+                            MovieCategory = 1,
+                            Name = "Thor: Ragnarok",
+                            Price = 25.989999999999998,
+                            ProducerId = 7,
+                            StartDate = new DateTime(2022, 6, 30, 22, 28, 9, 897, DateTimeKind.Local).AddTicks(6150)
                         });
                 });
 
@@ -553,6 +815,41 @@ namespace Box_AM_Ofice.Migrations
                             Bio = "Aleksey Aleksandrovich Chadov was born on September 2, 1981, in Solntsevo, Moscow region, RSFSR, USSR, now a suburb of Moscow, Russia.",
                             FullName = "Aleksey Chadov",
                             ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Chadov_Aleksey.jpg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Bio = "Wagner was born Paula Sue Kauffman in Youngstown, Ohio. Her mother, Sue Anna (née Shofstall), was a news magazine editor from Oklahoma, and her father, Edmund Jamison Ned Kauffman, Jr., was a business owner.",
+                            FullName = "Paula Wagner",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Paula-Wagner-Deauville.png"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Bio = "Frank Wilton Marshall (born September 13, 1946) is an American film producer and director. He often collaborates with his wife, film producer Kathleen Kennedy. ",
+                            FullName = "Frank Marshall",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Frank-Marshall.jpg"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Bio = "Larry Joseph Franco (born April 5, 1949) is an American film producer. He has also served as an actor, second unit director and assistant director.",
+                            FullName = "Larry Franco",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Larry-Franco.jpg"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Bio = "Ralph Guggenheim is an American video graphics designer and film producer. He won a Producers Guild of America Award in 1995 for his contributions to the film Toy Story..",
+                            FullName = "Ralph Guggenheim",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Ralph-Guggenheim.jpg"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Bio = "Kevin Feige is an American film and television producer who has been the president of Marvel Studios and the primary producer of the Marvel Cinematic Universe franchise since 2007.",
+                            FullName = "Kevin Feige",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Kevin-Feige.jpg"
                         });
                 });
 
