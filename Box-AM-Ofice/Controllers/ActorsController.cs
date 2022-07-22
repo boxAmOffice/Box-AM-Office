@@ -8,16 +8,19 @@ using Microsoft.EntityFrameworkCore;
 using boxAmOffice.Models;
 using Box_AM_Ofice.Models.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using NToastNotify;
 
 namespace Box_AM_Ofice.Controllers
 {
     public class ActorsController : Controller
     {
         private readonly IActor _actor;
+        private readonly IToastNotification _toastNotification;
 
-        public ActorsController(IActor actor)
+        public ActorsController(IActor actor, IToastNotification toastNotification)
         {
             _actor = actor;
+            _toastNotification = toastNotification;
         }
 
         // GET: Actors
@@ -59,6 +62,7 @@ namespace Box_AM_Ofice.Controllers
             if (ModelState.IsValid)
             {
                 await _actor.CreateActor(actor);
+                _toastNotification.AddSuccessToastMessage("Actor created successfully");
                 return RedirectToAction(nameof(Index));
             }
             return View(actor);
@@ -95,7 +99,7 @@ namespace Box_AM_Ofice.Controllers
             if (ModelState.IsValid)
             {
                 await _actor.UpdateActor(id, actor);
-
+                _toastNotification.AddSuccessToastMessage("Actor edited successfully");
                 return RedirectToAction(nameof(Index));
             }
 
@@ -130,6 +134,7 @@ namespace Box_AM_Ofice.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _actor.DeleteActor(id);
+            _toastNotification.AddSuccessToastMessage("Actor deleted successfully");
             return RedirectToAction(nameof(Index));
         }
     }

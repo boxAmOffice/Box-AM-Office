@@ -10,9 +10,11 @@ namespace Box_AM_Ofice.Models.Services
 	public class MovieService : IMovie
 	{
 		private AppDbContext _context;
+
 		public MovieService(AppDbContext context)
 		{
 			_context = context;
+		
 		}
 		public async Task<Movie> CreateMovie(Movie movie)
 		{

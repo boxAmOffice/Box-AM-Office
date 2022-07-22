@@ -6,16 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using boxAmOffice.Models;
 using Box_AM_Ofice.Models.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using NToastNotify;
 
 namespace Box_AM_Ofice.Controllers
 {
     public class MoviesController : Controller
     {
         private readonly IMovie _movies;
+        private readonly IToastNotification _toastNotification;
 
-        public MoviesController(IMovie movies)
+        public MoviesController(IMovie movies, IToastNotification toastNotification)
         {
             _movies = movies;
+            _toastNotification = toastNotification;
         }
 
         // GET: Movies
@@ -53,6 +56,7 @@ namespace Box_AM_Ofice.Controllers
             if (ModelState.IsValid)
             {
                 await _movies.CreateMovie(movie);
+                _toastNotification.AddSuccessToastMessage("Movie created successfully");
                 return RedirectToAction("Index");
             }
             return View(movie);
@@ -74,6 +78,7 @@ namespace Box_AM_Ofice.Controllers
         public async Task<IActionResult> Edit(int id,Movie movie)
         {
             await _movies.UpdateMovie(id ,movie);
+            _toastNotification.AddSuccessToastMessage("Movie Edited successfully");
             return RedirectToAction("Index");
         }
 
@@ -93,6 +98,7 @@ namespace Box_AM_Ofice.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _movies.DeleteMovie(id);
+            _toastNotification.AddSuccessToastMessage("Movie deleted successfully");
             return RedirectToAction("Index");
         }
         public async Task<IActionResult> Search(string searchString)
