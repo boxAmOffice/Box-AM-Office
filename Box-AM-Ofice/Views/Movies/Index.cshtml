@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = "List of Movies";
 }
+<h1><span>M</span>ovies</h1>
+<hr />
 
 <div class="row">
     @foreach (var item in Model)
@@ -68,3 +70,13 @@
     }
 </div>
 
+<style>
+    h1 {
+        text-shadow: 2px 2px;
+        margin: 0 0 25px 50px;
+    }
+
+        h1 > span {
+            color: red;
+        }
+</style>

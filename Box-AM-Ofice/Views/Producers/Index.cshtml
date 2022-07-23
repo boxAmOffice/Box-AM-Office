@@ -1,13 +1,9 @@
 ﻿@model IEnumerable<boxAmOffice.Models.Producer>
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
-<h2>
-<i class="bi bi-headset"></i> Producers
-</h2>
-<br/>
+<h1><span>P</span>roducers</h1>
+<hr />
 
 
 <div class="row">
@@ -20,52 +16,62 @@
                     <th>@Html.DisplayNameFor(model => model.Bio)</th>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
                     {
-                        <th>Actions</th>
-                    }
+        <th>Actions</th>
+}
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td class="align-middle">
-                            <img class="rounded-circle" src="@item.ProfilePictureURL" alt="@item.FullName" style="max-width: 150px" />
-                        </td>
-                        <td class="align-middle">
-                            @Html.DisplayFor(modelItem => item.FullName)
-                        </td>
-                        <td class="align-middle">
-                            @Html.DisplayFor(modelItem => item.Bio)
-                        </td>
-                       
-                        <td>
-                            <div>
-                                @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                                {
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">
-                                        <i class="bi bi-pencil-square"></i>
-                                        Edit
-                                    </a>
-                                }
-                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning">
-                                    <i class="bi bi-info"></i>
+    <tr>
+        <td class="align-middle">
+            <img class="rounded-circle" src="@item.ProfilePictureURL" alt="@item.FullName" style="max-width: 150px" />
+        </td>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.Bio)
+        </td>
 
-                                    Details
-                                </a>
-                                @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                                {
-                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
-                                        <i class="bi bi-x"></i>
+        <td>
+            <div>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                {
+<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">
+    <i class="bi bi-pencil-square"></i>
+    Edit
+</a>}
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning">
+                    <i class="bi bi-info"></i>
 
-                                        Delete
-                                    </a>
-                                }
-                            </div>
-                        </td>
-                       
-                    </tr>
-                }
+                    Details
+                </a>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                {
+<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
+    <i class="bi bi-x"></i>
+
+    Delete
+</a>}
+            </div>
+        </td>
+
+    </tr>
+}
             </tbody>
         </table>
     </div>
 </div>
+
+
+<style>
+    h1 {
+        text-shadow: 2px 2px;
+        margin: 0 0 25px 50px;
+    }
+
+        h1 > span {
+            color: red;
+        }
+</style>
