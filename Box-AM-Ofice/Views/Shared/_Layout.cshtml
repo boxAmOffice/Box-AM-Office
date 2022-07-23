@@ -12,63 +12,51 @@
 
 </head>
 <body>
-	<nav>
-		<button class="openbtn">&#9776;<span class="am">AM</span> BOX OFFICE</button>
-		<div id="mySidebar" class="sidebar">
-			<a href="javascript:void(0)" class="closebtn">&times;</a>
-			<a asp-controller="Home" asp-action="Index">Home</a>
-			<a asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas</a>
-			<a asp-controller="Movies" asp-action="Index"><i class="bi bi-film"></i> Movies</a>
-			<a asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers</a>
-			<a asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors</a>
-		</div>
+    <nav>
+        <button class="openbtn">&#9776;<span class="am">AM</span> BOX OFFICE</button>
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn">&times;</a>
+            <a asp-controller="Home" asp-action="Index">Home</a>
+            <a asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas</a>
+            <a asp-controller="Movies" asp-action="Index"><i class="bi bi-film"></i> Movies</a>
+            <a asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers</a>
+            <a asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors</a>
+        </div>
 
-		<div class="right-side">
-			<a class="mycart nav-link text-light" asp-controller="Orders" asp-action="ShoppingCart">
-				<i class="bi bi-cart4"></i> 
-			</a>
-			<form class="form-inline my-2 my-lg-0" asp-controller="Movies" asp-action="Search" style="padding-right: 25px;">
-				<input name="searchString" type="text" class="form-control" placeholder="Search for a movie..." aria-label="Recipient's username" aria-describedby="button-addon2">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
-			</form>
-			@if (!User.Identity.IsAuthenticated)
-			{
-				<a class="btn btn-outline-success my-2 my-sm-0" asp-controller="Account" asp-action="Login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
-				<span style="padding: 5px;"></span>
-				<a class="btn btn-outline-primary my-2 my-sm-0" asp-controller="Account" asp-action="Register"><i class="bi bi-person-plus"></i> Register</a>
-			}
-			else
-			{
-				<form asp-controller="Account" asp-action="Logout">
-					<button class="btn btn-outline-danger my-2 my-sm-0">
-						<i class="bi bi-box-arrow-in-right"></i> Logout
-					</button>
-				</form>
-			}
-		</div>
-	</nav>
+        <div class="right-side">
+            <a class="mycart nav-link text-light" asp-controller="Orders" asp-action="ShoppingCart">
+                <i class="bi bi-cart4"></i>
+            </a>
+            <form class="form-inline my-2 my-lg-0" asp-controller="Movies" asp-action="Search" style="padding-right: 25px;">
+                <input name="searchString" type="text" class="form-control" placeholder="Search for a movie..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+            <partial name="_Identity.cshtml" />
 
-	@await Component.InvokeAsync("ShoppingCartSummary")
+        </div>
+    </nav>
 
-	<div>
-		
-		<main role="main">
-			@RenderBody()
-		</main>
-	</div>
+    @await Component.InvokeAsync("ShoppingCartSummary")
 
-	@*<footer class="border-top footer text-muted">
-		<div class="container">
-		&copy; 2022 - Box_AM_Ofice
-		</div>
-		</footer>*@
+    <div class="container-fluid">
+
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+        <div class="container">
+        &copy; 2022 - Box_AM_Ofice
+        </div>
+        </footer>*@
 
 
-	<script src="~/lib/jquery/dist/jquery.min.js"></script>
-	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="~/js/site.js" asp-append-version="true"></script>
-	@await RenderSectionAsync("Scripts", required: false)
-	@await Component.InvokeAsync("NToastNotify")
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    @await Component.InvokeAsync("NToastNotify")
 </body>
 
 <script>
