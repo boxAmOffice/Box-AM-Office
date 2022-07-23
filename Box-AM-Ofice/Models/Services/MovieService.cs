@@ -1,4 +1,5 @@
 ﻿using Box_AM_Ofice.Models.Interfaces;
+using Box_AM_Ofice.ViewModels;
 using boxAmOffice.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -95,6 +96,17 @@ namespace Box_AM_Ofice.Models.Services
 			_context.Entry(movie).State = EntityState.Modified;
 			await _context.SaveChangesAsync();
 			return UpdateMovie;
+		}
+		public async Task<MovieDropdownsVM> GetNewMovieDropdownsValues()
+		{
+			var response = new MovieDropdownsVM()
+			{
+				Actors = await _context.Actors.OrderBy(n => n.FullName).ToListAsync(),
+				Cinemas = await _context.Cinemas.OrderBy(n => n.Name).ToListAsync(),
+				Producers = await _context.Producers.OrderBy(n => n.FullName).ToListAsync()
+			};
+
+			return response;
 		}
 	}
 }

@@ -72,8 +72,9 @@
                 <div class="col-md-12">
                     <div class="card-footer">
                         <p class="card-text">
-                            <a class="btn btn-outline-primary float-right" asp-action="Index">
-                                Back to List
+                            <a asp-action="Index" class="btn btn-outline-warning float-right">
+                                <i class="bi bi-arrow-counterclockwise"></i>
+                                Back to Movies
                             </a>
                             <a class="btn btn-outline-success " asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@Model.Id">
                                 <i class="bi bi-cart-plus"></i> Add to Cart

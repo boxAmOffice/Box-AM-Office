@@ -7,6 +7,11 @@ using boxAmOffice.Models;
 using Box_AM_Ofice.Models.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using NToastNotify;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 
 namespace Box_AM_Ofice.Controllers
 {
@@ -14,11 +19,15 @@ namespace Box_AM_Ofice.Controllers
     {
         private readonly IMovie _movies;
         private readonly IToastNotification _toastNotification;
+        private readonly IConfiguration _Configuration;
 
-        public MoviesController(IMovie movies, IToastNotification toastNotification)
+
+        public MoviesController(IMovie movies, IToastNotification toastNotification, IConfiguration config)
         {
             _movies = movies;
             _toastNotification = toastNotification;
+            _Configuration = config;
+
         }
 
         // GET: Movies
@@ -29,7 +38,7 @@ namespace Box_AM_Ofice.Controllers
         }
 
         // GET: Movies
-      
+
 
 
         // GET: Movies/Details/5
@@ -42,8 +51,14 @@ namespace Box_AM_Ofice.Controllers
         // GET: Movies/Create
         [Authorize(Roles = "Administrator")]
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
+
         {
+            var movieDropdownsData = await _movies.GetNewMovieDropdownsValues();
+
+            ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+            ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
+            ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
             return View();
         }
 
@@ -51,14 +66,37 @@ namespace Box_AM_Ofice.Controllers
         [Authorize(Roles = "Administrator")]
 
         [HttpPost]
-        public async Task<IActionResult> Create(Movie movie)
+        public async Task<IActionResult> Create(Movie movie, IFormFile file)
         {
+            BlobContainerClient container = new BlobContainerClient(_Configuration.GetConnectionString("AzureBlob"), "attac");
+            await container.CreateIfNotExistsAsync();
+            BlobClient blob = container.GetBlobClient(file.FileName);
+            using var stream = file.OpenReadStream();
+
+            BlobUploadOptions options = new BlobUploadOptions()
+            {
+                HttpHeaders = new BlobHttpHeaders() { ContentType = file.ContentType }
+            };
+
+
+            if (!blob.Exists())
+            {
+                await blob.UploadAsync(stream, options);
+            }
+
+            movie.ImageURL = blob.Uri.ToString();
+            var movieDropdownsData = await _movies.GetNewMovieDropdownsValues();
+
             if (ModelState.IsValid)
             {
                 await _movies.CreateMovie(movie);
+                ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+                ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
+                ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
                 _toastNotification.AddSuccessToastMessage("Movie created successfully");
                 return RedirectToAction("Index");
             }
+            stream.Close();
             return View(movie);
         }
 
@@ -67,6 +105,11 @@ namespace Box_AM_Ofice.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
+            var movieDropdownsData = await _movies.GetNewMovieDropdownsValues();
+
+            ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+            ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
+            ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
             Movie movie = await _movies.GetMovie(id);
             return View(movie);
         }
@@ -75,10 +118,37 @@ namespace Box_AM_Ofice.Controllers
         [Authorize(Roles = "Administrator")]
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id,Movie movie)
+        public async Task<IActionResult> Edit(int id, Movie movie, IFormFile file)
         {
-            await _movies.UpdateMovie(id ,movie);
+            var movieDropdownsData = await _movies.GetNewMovieDropdownsValues();
+
+            ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+            ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
+            ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
+
+
+            BlobContainerClient container = new BlobContainerClient(_Configuration.GetConnectionString("AzureBlob"), "attac");
+            await container.CreateIfNotExistsAsync();
+            BlobClient blob = container.GetBlobClient(file.FileName);
+            using var stream = file.OpenReadStream();
+
+            BlobUploadOptions options = new BlobUploadOptions()
+            {
+                HttpHeaders = new BlobHttpHeaders() { ContentType = file.ContentType }
+            };
+
+
+            if (!blob.Exists())
+            {
+                await blob.UploadAsync(stream, options);
+            }
+
+            movie.ImageURL = blob.Uri.ToString();
+
+            await _movies.UpdateMovie(id, movie);
             _toastNotification.AddSuccessToastMessage("Movie Edited successfully");
+            stream.Close();
+
             return RedirectToAction("Index");
         }
 
