@@ -4,8 +4,8 @@
     align-items: center;
     color: #eee;
     background-image: url("https://3erc1e4bvanrdzas82cngnw1-wpengine.netdna-ssl.com/wp-content/uploads/2021/09/06-movie-reel-GettyImages-1007557230-770.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
     box-shadow: 0 0 10px 2px black;
     margin-bottom: 100px;
 }

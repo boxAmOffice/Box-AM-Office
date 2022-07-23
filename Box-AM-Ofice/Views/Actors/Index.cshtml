@@ -1,17 +1,15 @@
 ﻿@model IEnumerable<boxAmOffice.Models.Actor>
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+@{ ViewData["Title"] = "Index";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
 
-<h1>Index</h1>
+<h1><span>A</span>ctors</h1>
+<hr />
 
 <p>
-     @if (signInManager.IsSignedIn(User) && (User.IsInRole("Administrator")))
-                        {  
-    <a asp-action="Create">Create New</a>
-                        }
+    @if (signInManager.IsSignedIn(User) && (User.IsInRole("Administrator")))
+    {
+<a asp-action="Create">Create New</a>}
 </p>
 <table class="table">
     <thead>
@@ -29,27 +27,39 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <img class="rounded-circle" src="@item.ProfilePictureURL" style="max-width:150px">
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bio)
-            </td>
-             @if (signInManager.IsSignedIn(User) && (User.IsInRole("Administrator")))
-                        {
-            <td>
-                
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                       
-            </td> }
-        </tr>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        <img class="rounded-circle" src="@item.ProfilePictureURL" style="max-width:150px">
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FullName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Bio)
+    </td>
+    @if (signInManager.IsSignedIn(User) && (User.IsInRole("Administrator")))
+    {
+<td>
+
+    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+</td>
 }
+</tr>}
     </tbody>
 </table>
+
+<style>
+    h1 {
+        text-shadow: 2px 2px;
+        margin: 0 0 25px 50px;
+    }
+
+        h1 > span {
+            color: red;
+        }
+</style>
