@@ -30,7 +30,7 @@
 
 			<p style="color: #eee;">@item.Cinema.Name</p>
 
-			<img src="@item.ImageURL" width="200px" alt="@item.Name">
+			<img src="@item.ImageURL" style="max-width:250px" alt="@item.Name">
 
 			<div>
 				<a class="btn btn-outline-primary float-right" asp-controller="Movies" asp-action="Details" asp-route-id="@item.Id">
@@ -57,22 +57,21 @@ nav{
     position: relative;
     display: block;
     width: 100%;
-    height: 700px;
+    height: 800px;
     background-image: url("https://3erc1e4bvanrdzas82cngnw1-wpengine.netdna-ssl.com/wp-content/uploads/2021/09/06-movie-reel-GettyImages-1007557230-770.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -1;
     bottom: 80px;
 }
+/* remove the cart from the home page */
 .mycart{
     display: none;
 }
-.mycart:hover{
-    display: none;
-}
+
 .contant {
     position: absolute;
-    top: 200px;
+    top: 250px;
     right: 200px;
 }
 
@@ -92,14 +91,14 @@ nav{
 
 .cinema-btn {
     position:absolute;
-    top: 450px;
-    right: 505px;
+    top: 480px;
+    right: 510px;
     border: 1px solid black;
     padding: 5px 20px;
-    background-color: #f1f1f1;
+    background-color: #ccc;
     color: black;
     font-size: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .cinema-btn:hover {
