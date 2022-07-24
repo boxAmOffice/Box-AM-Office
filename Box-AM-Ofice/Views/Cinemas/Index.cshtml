@@ -5,13 +5,23 @@
 
 @{
 
-	ViewData["Title"] = "List of Cinemas";
+    ViewData["Title"] = "List of Cinemas";
 
 }
 
 
 <h1><span>C</span>inemas</h1>
 <hr />
+
+@if (User.Identity.IsAuthenticated && User.IsInRole("Administrator") || User.IsInRole("Editor"))
+{
+    <p>
+
+        <a class="btn btn-outline-dark justify-content-xl-center" asp-action="Create">
+            <i class="bi bi-plus-circle"></i> Add New Actors
+        </a>
+    </p>
+}
 <div class="cinema-container">
 	@foreach (var item in Model)
 	{
@@ -33,9 +43,9 @@
 
                     }
                 </div>
-			</div>
-		</div>
-	}
+            </div>
+        </div>
+    }
 </div>
 @await Html.PartialAsync("_CreateItem", "Cinemas")
 
@@ -45,44 +55,45 @@
         margin: 0 0 25px 50px;
     }
 
-    h1 > span {
-        color: red;
+        h1 > span {
+            color: red;
+        }
+
+    .cinema-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
-	.cinema-container {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-	}
+    .card {
+        width: 18rem;
+        margin: 25px 50px;
+        position: relative;
+    }
 
-	.card {
-		width: 18rem;
-		margin: 25px 50px;
-		position:relative;
-	}
-	.links{
-		position: absolute;
-		bottom: 10px;
-		right:10px;
-		margin-top: 100px;
-	}
-	.movies-btn {
-		border: 1px solid black;
-		padding: 5px 20px;
-		background-color: #111;
-		color: #eee;
-		font-size: 20px;
-		border-radius: 5px;
+    .links {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        margin-top: 100px;
+    }
 
-	}
+    .movies-btn {
+        border: 1px solid black;
+        padding: 5px 20px;
+        background-color: #111;
+        color: #eee;
+        font-size: 20px;
+        border-radius: 5px;
+    }
 
-		.movies-btn:hover {
-			text-decoration: none;
-			/*background-color: #231955;*/
-			background-color: #A10035;
-			color:#eee;
-			transition: .2s;
-		}
+        .movies-btn:hover {
+            text-decoration: none;
+            /*background-color: #231955;*/
+            background-color: #A10035;
+            color: #eee;
+            transition: .2s;
+        }
 </style>
 

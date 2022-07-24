@@ -1,65 +1,91 @@
 ﻿@model IEnumerable<boxAmOffice.Models.Actor>
 
 @{ ViewData["Title"] = "Index";
-                Layout = "~/Views/Shared/_Layout.cshtml"; }
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
 
 <h1><span>A</span>ctors</h1>
 <hr />
 
 <p>
-    @if (signInManager.IsSignedIn(User) && (User.IsInRole("Administrator")))
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator") || User.IsInRole("Editor"))
     {
-<a asp-action="Create">Create New</a>}
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProfilePictureURL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bio)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-<tr>
-    <td>
-        <img class="rounded-circle" src="@item.ProfilePictureURL" style="max-width:150px">
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.FullName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Bio)
-    </td>
-    @if (signInManager.IsSignedIn(User) && (User.IsInRole("Administrator")))
-    {
-<td>
+    <p>
 
-    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-
-</td>
+        <a class="btn btn-outline-dark justify-content-xl-center" asp-action="Create">
+            <i class="bi bi-plus-circle"></i> Add New Actors
+        </a>
+    </p>
 }
-</tr>}
-    </tbody>
-</table>
+    <div class="col-md-8 offset-md-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProfilePictureURL)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Bio)
+                    </th>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                    {
+                        <th>Actions</th>
+                    }
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img class="rounded-circle" src="@item.ProfilePictureURL" style="max-block-size: 170px">
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Bio)
+                        </td>
+                        @if (signInManager.IsSignedIn(User) && (User.IsInRole("Administrator")))
+                        {
+                            <td>
+                                <div>
+                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                                    {
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">
+                                            <i class="bi bi-pencil-square"></i>
+                                            Edit
+                                        </a>}
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning">
+                                        <i class="bi bi-info"></i>
 
-<style>
-    h1 {
-        text-shadow: 2px 2px;
-        margin: 0 0 25px 50px;
-    }
+                                        Details
+                                    </a>
+                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                                    {
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
+                                            <i class="bi bi-x"></i>
 
-        h1 > span {
-            color: red;
-        }
-</style>
+                                            Delete
+                                        </a>}
+                                </div>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <style>
+            h1 {
+                text-shadow: 2px 2px;
+                margin: 0 0 25px 50px;
+            }
+
+                h1 > span {
+                    color: red;
+                }
+        </style>
