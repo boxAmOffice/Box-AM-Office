@@ -9,6 +9,7 @@
 
 }
 
+
 <h1><span>C</span>inemas</h1>
 <hr />
 
@@ -22,13 +23,14 @@
     </p>
 }
 <div class="cinema-container">
-    @foreach (var item in Model)
-    {
-        <div class="card">
-            <img class="card-img-top" src="@item.Logo" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@item.Name</h5>
-                <p class="card-text">@item.Description.</p>
+	@foreach (var item in Model)
+	{
+		<div class="card">
+			<img class="card-img-top" src="@item.Logo" alt="Card image cap" style="width: 285px;
+    height: 215px;">
+			<div class="card-body">
+				<h5 class="card-title">@item.Name</h5>
+				<p class="card-text">@item.Description.</p>
                 <div class="links">
                     <a class="btn btn-outline-secondary" asp-action="AllMovies">Movies</a>
                     <br>

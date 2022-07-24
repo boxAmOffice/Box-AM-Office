@@ -2,20 +2,17 @@
 
 @if (Model > 0)
 {
-	<a class="mycart nav-link text-dark" asp-controller="Orders" asp-action="ShoppingCart">
+	<a class="mycart nav-link text-white" asp-controller="Orders" asp-action="ShoppingCart">
 		<i class="bi bi-cart4"></i> @Model
 	</a>
 }
 
 <style>
 	.mycart {
-		position: absolute;
-		font-size: 30px;
-		top: 100px;
-		right: 60px;
+		    padding-right: 20px;
+			font-size: 17px;
+			padding-right:20px !important;
+			
 	}
 
-		.mycart:hover {
-			border-bottom: 1px solid #111;
-		}
 </style>
