@@ -1,0 +1,102 @@
+﻿body {
+    background-color: #111;
+}
+
+    body .container-fluid {
+        padding: unset;
+        margin: unset;
+    }
+
+nav {
+    margin-bottom: 0;
+    box-shadow: none !important;
+}
+
+.main {
+    position: relative;
+    display: block;
+    height: 450px;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
+    background-image: url("https://visit.gent.be/sites/default/files/styles/header_desktop/public/media/img/2022-01/VisitReeks133-DT012880.jpg?itok=BXvELz9A") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*    z-index: -1;*/
+    /*bottom: 80px;*/
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 25px;
+    height: 300px;
+    margin: 25px;
+}
+/* remove the cart from the home page */
+.mycart {
+    display: none;
+}
+
+.card-overlay {
+    position: relative;
+}
+
+    .card-overlay:after {
+        content: '';
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+    }
+/*.movies-btn{
+    position:absolute;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    padding: 5px 100px;
+    background-color: #111;
+    color: #eee;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size: 50px;
+    border-radius: 10px;
+}*/
+
+.cinema-btn, .movie-btn {
+    /*position:absolute;
+    top: 480px;
+    right: 510px;*/
+    border: 1px solid black;
+    padding: 5px 20px;
+    background-color: #ccc;
+    color: black;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.movie-btn {
+    width: 15%;
+}
+
+.cinema-btn:hover {
+    text-decoration: none;
+    background-color: #111;
+    color: white;
+    transition: .2s;
+}
+
+.movie-btn:hover {
+    text-decoration: none;
+    background-color: #111;
+    color: white;
+    transition: .2s;
+}
+
+.movies {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
