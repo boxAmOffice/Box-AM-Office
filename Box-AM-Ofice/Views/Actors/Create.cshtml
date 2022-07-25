@@ -5,40 +5,62 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1> <up>C</up>reate <span>A</span>ctors</h1>
 
-<h4>Actor</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ProfilePictureURL" class="control-label"></label>
-                <input asp-for="ProfilePictureURL" class="form-control" />
-                <span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
+<div class="row text">
+    <div class="col-md-8 offset-2">
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ProfilePictureURL" class="control-label"></label>
+                        <input type="file" name="file" asp-for="ProfilePictureURL" class="form-control" accept=".png, .jpg , .jfif" />
+                        <span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FullName" class="control-label"></label>
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Bio" class="control-label"></label>
+                        <input asp-for="Bio" class="form-control" />
+                        <span asp-validation-for="Bio" class="text-danger"></span>
+                    </div>
+                    <div id="ss33">
+                        <button type="submit" class="btn btn-outline-primary mt-4">
+                            <i class="bi bi-check"></i>
+                            Save
+                        </button>
+                        <a asp-action="Index" class="btn btn-outline-warning mt-4 float-right">
+                            <i class="bi bi-arrow-counterclockwise"></i>
+                            Back to Actors
+                        </a>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="FullName" class="control-label"></label>
-                <input asp-for="FullName" class="form-control" />
-                <span asp-validation-for="FullName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Bio" class="control-label"></label>
-                <input asp-for="Bio" class="form-control" />
-                <span asp-validation-for="Bio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
+<style>
+    h1 {
+        text-shadow: 2px 2px;
+        margin: 0 0 25px 50px;
+    }
+
+        h1 > span {
+            color: red;
+        }
+
+        h1 > up {
+            color: darkgreen;
+        }
+</style>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

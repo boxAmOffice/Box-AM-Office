@@ -11,81 +11,61 @@
     {
     <p>
 
-        <a class="btn btn-outline-dark justify-content-xl-center" asp-action="Create">
+        <a class="btn btn-outline-success justify-content-xl-center" asp-action="Create">
             <i class="bi bi-plus-circle"></i> Add New Actors
         </a>
     </p>
 }
-    <div class="col-md-8 offset-md-2">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ProfilePictureURL)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FullName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Bio)
-                    </th>
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                    {
-                        <th>Actions</th>
-                    }
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            <img class="rounded-circle" src="@item.ProfilePictureURL" style="max-block-size: 170px">
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FullName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Bio)
-                        </td>
-                        @if (signInManager.IsSignedIn(User) && (User.IsInRole("Administrator")))
-                        {
-                            <td>
-                                <div>
-                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                                    {
-                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">
-                                            <i class="bi bi-pencil-square"></i>
-                                            Edit
-                                        </a>}
-                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning">
-                                        <i class="bi bi-info"></i>
+    <div class="row justify-content-around">
 
-                                        Details
-                                    </a>
-                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                                    {
-                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
-                                            <i class="bi bi-x"></i>
+        @foreach (var item in Model)
+        {
+            <div class="card mb-3" style="max-width: 520px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="@item.ProfilePictureURL" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title">@item.FullName</h4>
+                            <p class="card-text"> @item.Bio</p>
+                            <br>
+                        </div>
+                        <div>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">
+                                    <i class="bi bi-pencil-square"></i>
+                                    Edit
+                                </a>}
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning">
+                                <i class="bi bi-info"></i>
 
-                                            Delete
-                                        </a>}
-                                </div>
-                            </td>
-                        }
-                    </tr>
-                }
-            </tbody>
-        </table>
+                                Details
+                            </a>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                            {
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
+                                    <i class="bi bi-x"></i>
 
-        <style>
-            h1 {
-                text-shadow: 2px 2px;
-                margin: 0 0 25px 50px;
+                                    Delete
+                                </a>}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+
+
+    <style>
+        h1 {
+            text-shadow: 2px 2px;
+            margin: 0 0 25px 50px;
+        }
+
+            h1 > span {
+                color: red;
             }
-
-                h1 > span {
-                    color: red;
-                }
-        </style>
+    </style>

@@ -27,7 +27,6 @@ namespace Box_AM_Ofice.Controllers
             _movies = movies;
             _toastNotification = toastNotification;
             _Configuration = config;
-
         }
 
         // GET: Movies
@@ -64,7 +63,6 @@ namespace Box_AM_Ofice.Controllers
 
         // POST: Movies/Create
         [Authorize(Roles = "Administrator")]
-
         [HttpPost]
         public async Task<IActionResult> Create(Movie movie, IFormFile file)
         {
@@ -84,20 +82,18 @@ namespace Box_AM_Ofice.Controllers
                 await blob.UploadAsync(stream, options);
             }
 
+
             movie.ImageURL = blob.Uri.ToString();
             var movieDropdownsData = await _movies.GetNewMovieDropdownsValues();
 
-            if (ModelState.IsValid)
-            {
-                await _movies.CreateMovie(movie);
-                ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
-                ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
-                ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
-                _toastNotification.AddSuccessToastMessage("Movie created successfully");
-                return RedirectToAction("Index");
-            }
+            ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
+            ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
+            ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
+            await _movies.CreateMovie(movie);
+            _toastNotification.AddSuccessToastMessage("Movie created successfully");
             stream.Close();
-            return View(movie);
+            return RedirectToAction("Index");
+
         }
 
         // GET: Movies/Edit/5
@@ -174,12 +170,11 @@ namespace Box_AM_Ofice.Controllers
         public async Task<IActionResult> Search(string searchString)
         {
             var allMovies = await _movies.GetMovies();
-
+         
             if (!string.IsNullOrEmpty(searchString))
             {
-                //var filteredResult = allMovies.Where(n => n.Name.ToLower().Contains(searchString.ToLower()) || n.Description.ToLower().Contains(searchString.ToLower())).ToList();
-
-                var filteredResultNew = allMovies.Where(n => string.Equals(n.Name, searchString, StringComparison.CurrentCultureIgnoreCase) || string.Equals(n.Description, searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
+               
+                var filteredResultNew = allMovies.Where(y => y.Name.Contains(searchString)).ToList();
 
                 return View("Index", filteredResultNew);
             }

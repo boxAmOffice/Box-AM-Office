@@ -5,85 +5,66 @@
 <h1><span>P</span>roducers</h1>
 <hr />
 
-@if (User.Identity.IsAuthenticated && User.IsInRole("Administrator") || User.IsInRole("Editor"))
+@if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
 {
     <p>
 
-        <a class="btn btn-outline-dark justify-content-xl-center" asp-action="Create">
+        <a class="btn btn-outline-success justify-content-xl-center" asp-action="Create">
             <i class="bi bi-plus-circle"></i> Add New Producer
         </a>
     </p>
 }
 
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <table class="table">
-            <thead>
-                <tr class="text-center">
-                    <th>@Html.DisplayNameFor(model => model.ProfilePictureURL)</th>
-                    <th>@Html.DisplayNameFor(model => model.FullName)</th>
-                    <th>@Html.DisplayNameFor(model => model.Bio)</th>
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                    {
-                        <th>Actions</th>
-                    }
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td class="align-middle">
-                            <img class="rounded-circle" src="@item.ProfilePictureURL" alt="@item.FullName" style="max-block-size: 170px" />
-                        </td>
-                        <td class="align-middle">
-                            @Html.DisplayFor(modelItem => item.FullName)
-                        </td>
-                        <td class="align-middle">
-                            @Html.DisplayFor(modelItem => item.Bio)
-                        </td>
+<div class="row justify-content-around">
 
-                        <td>
-                            <div>
-                                @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                                {
-                                    
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">
-                                        <i class="bi bi-pencil-square"></i>
-                                        Edit
-                                    </a><br />}
+    @foreach (var item in Model)
+    {
+        <div class="card mb-3" style="max-width: 520px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="@item.ProfilePictureURL" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h4 class="card-title">@item.FullName</h4>
+                        <p class="card-text"> @item.Bio</p>
+                        <br>
+                    </div>
+                    <div>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">
+                                <i class="bi bi-pencil-square"></i>
+                                Edit
+                            </a>}
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning">
+                            <i class="bi bi-info"></i>
 
-                                
-                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning">
-                                    <i class="bi bi-info"></i>
-                                    Details
-                                </a>
+                            Details
+                        </a>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
+                                <i class="bi bi-x"></i>
 
-                                @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
-                                {
-                                    
-                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
-                                        <i class="bi bi-x"></i>
-                                        Delete
-                                    </a>}
-                            </div>
-                        </td>
+                                Delete
+                            </a>}
+                    </div>
+                </div>
 
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+            </div>
+        </div>
+    }
 </div>
 
 
-<style>
-    h1 {
-        text-shadow: 2px 2px;
-        margin: 0 0 25px 50px;
-    }
+ <style>
+     h1 {
+         text-shadow: 2px 2px;
+         margin: 0 0 25px 50px;
+     }
 
-        h1 > span {
-            color: red;
-        }
-</style>
+         h1 > span {
+             color: red;
+         }
+ </style>

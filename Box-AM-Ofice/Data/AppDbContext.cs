@@ -251,7 +251,7 @@ namespace boxAmOffice.Models
                 {
                     Id = 4,
                     FullName = "Kristina Asmus",
-                    Bio = "Kristina Asmus was born Kristina Igorevna Myasnikova on April 14, 1988, in Kaliningrad",
+                    Bio = "Kristina Asmus was born on April 14, 1988, in Kaliningrad",
                     ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Kristina_Asmus.jpg"
 
                 },
@@ -259,7 +259,7 @@ namespace boxAmOffice.Models
                 {
                     Id = 5,
                     FullName = "Jalil Asretov",
-                    Bio = "alil Asretov was born on February 26, 1994 in Makhachkala, Republic of Dagestan, Russia.",
+                    Bio = "alil Asretov was born on February 26, 1994 in Makhachkala , Russia",
                     ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Jalil_Asretov.png"
 
                 },
@@ -275,21 +275,21 @@ namespace boxAmOffice.Models
                   {
                       Id = 7,
                       FullName = "Thomas Cruise",
-                      Bio = "Thomas Cruise Mapother IV(born July 3, 1962) is an American actor and producer.One of the world's highest-paid actors,[1] he has received various accolades.",
+                      Bio = "Thomas Cruise Mapother IV(born July 3, 1962) is an American actor and producer",
                       ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Tom-Cruise.jpg"
                   },
                     new Actor
                     {
                         Id = 8,
                         FullName = "Irving Rameses",
-                        Bio = "Irving Rameses Ving Rhames is an American actor. He is best known for his starring role as IMF Agent Luther Stickell in the Mission: Impossible film series and his supporting role as gang kingpin Marsellus Wallace in Pulp Fiction",
+                        Bio = "Irving Rameses Ving Rhames is an American actor.",
                         ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Irving-Rameses.jpg"
                     },
                      new Actor
                      {
                          Id = 9,
                          FullName = "Jeff Goldblum",
-                         Bio = "Jeffrey Lynn Goldblum (/ˈɡoʊldbluːm/; born October 22, 1952) is an American actor and musician. He has starred in some of the highest-grossing films of his era, such as Jurassic Park (1993) and Independence Day (1996), as well as their sequels.",
+                         Bio = "Jeffrey Lynn Goldblum (born October 22, 1952) is an American actor and musician.",
                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Jeff-Goldblum.jpg"
                      },
                       new Actor
