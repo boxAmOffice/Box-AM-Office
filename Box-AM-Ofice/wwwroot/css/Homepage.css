@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: #111;
+    background-color: white !important;
 }
 
     body .container-fluid {
@@ -13,24 +13,32 @@ nav {
 }
 
 .main {
-    position: relative;
+
+    /*display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;*/
+   /* position: relative;
     display: block;
-    height: 450px;
-    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);
-    background-image: url("https://visit.gent.be/sites/default/files/styles/header_desktop/public/media/img/2022-01/VisitReeks133-DT012880.jpg?itok=BXvELz9A") !important;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 500px;
+    padding: 50px 100px;*/
+    /*box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5);*/
+    /*background-image: url("https://visit.gent.be/sites/default/files/styles/header_desktop/public/media/img/2022-01/VisitReeks133-DT012880.jpg?itok=BXvELz9A") !important;*/
+    /*background-repeat: no-repeat;
+    background-size: cover;*/
     /*    z-index: -1;*/
     /*bottom: 80px;*/
 }
-
-.column {
+.main > img {
+    width: 400px;
+}
+/*.column {
     float: left;
     width: 50%;
     padding: 25px;
     height: 300px;
     margin: 25px;
-}
+}*/
 /* remove the cart from the home page */
 .mycart {
     display: none;
