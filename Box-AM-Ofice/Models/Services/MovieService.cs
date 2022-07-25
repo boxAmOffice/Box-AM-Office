@@ -108,5 +108,11 @@ namespace Box_AM_Ofice.Models.Services
 
 			return response;
 		}
-	}
+
+        public async Task<List<Movie>> GetMoviesByCinemaId(int cinemaId)
+        {
+			var movies = await _context.Movies.Where(m => m.CinemaId == cinemaId).ToListAsync();
+			return movies;
+        }
+    }
 }

@@ -16,5 +16,7 @@ namespace Box_AM_Ofice.Models.Interfaces
         Task DeleteMovie(int Id);
         Task<MovieDropdownsVM> GetNewMovieDropdownsValues();
 
+        Task<List<Movie>> GetMoviesByCinemaId(int cinemaId);
+
     }
 }
