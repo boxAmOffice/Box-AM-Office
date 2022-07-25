@@ -17,10 +17,16 @@ namespace Box_AM_Ofice.Models.Services
 
         public async Task<Actor> CreateActor(Actor actor)
         {
+            Actor actor1 = new Actor
+            {
+                FullName = actor.FullName,
+                Bio = actor.Bio,
+                ProfilePictureURL = actor.ProfilePictureURL
+
+            };
             _context.Entry(actor).State = EntityState.Added;
             await _context.SaveChangesAsync();
-
-            return actor;
+            return actor1;
         }
 
         public async Task DeleteActor(int id)
@@ -50,9 +56,9 @@ namespace Box_AM_Ofice.Models.Services
                 ProfilePictureURL = actor.ProfilePictureURL
             };
 
-            _context.Entry(UpdatedActor).State = EntityState.Modified;
+            _context.Entry(actor).State = EntityState.Modified;
             await _context.SaveChangesAsync();
-            return actor;
+            return UpdatedActor;
         }
     }
 }

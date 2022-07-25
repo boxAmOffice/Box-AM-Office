@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
 using NToastNotify;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 
 namespace eTickets.Controllers
 {
@@ -14,12 +18,16 @@ namespace eTickets.Controllers
         private readonly ICinema _service;
         private readonly IMovie _movies;
         private readonly IToastNotification _toastNotification;
+        private readonly IConfiguration _Configuration;
 
-        public CinemasController(ICinema service, IMovie movies, IToastNotification toastNotification)
+
+
+        public CinemasController(ICinema service, IMovie movies, IToastNotification toastNotification, IConfiguration config)
         {
             _service = service;
             _movies = movies;
             _toastNotification = toastNotification;
+            _Configuration = config;
 
         }
         public async Task<IActionResult> Index()
@@ -43,16 +51,30 @@ namespace eTickets.Controllers
 
         [Authorize(Roles = "Administrator")]
         [HttpPost]
-        public async Task<IActionResult> Create(Cinema cinema)
-
+        public async Task<IActionResult> Create(Cinema cinema, IFormFile file)
         {
-            if (!ModelState.IsValid) // check validations like Required annotation
+            BlobContainerClient container = new BlobContainerClient(_Configuration.GetConnectionString("AzureBlob"), "attac");
+            await container.CreateIfNotExistsAsync();
+            BlobClient blob = container.GetBlobClient(file.FileName);
+            using var stream = file.OpenReadStream();
+
+            BlobUploadOptions options = new BlobUploadOptions()
             {
-                return View(cinema);
+                HttpHeaders = new BlobHttpHeaders() { ContentType = file.ContentType }
+            };
+
+
+            if (!blob.Exists())
+            {
+                await blob.UploadAsync(stream, options);
             }
+
+            cinema.Logo = blob.Uri.ToString();
             await _service.AddCinema(cinema);
-            _toastNotification.AddSuccessToastMessage("Cinema created successfully");
-            return RedirectToAction(nameof(Index));
+            _toastNotification.AddSuccessToastMessage("Cinema Added successfully");
+            stream.Close();
+            return RedirectToAction("Index");
+
         }
         // Get: Cinemas/Details/1
 
@@ -73,16 +95,31 @@ namespace eTickets.Controllers
         [Authorize(Roles = "Administrator")]
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id,Cinema cinema)
-
+        public async Task<IActionResult> Edit(int id, Cinema cinema, IFormFile file)
         {
-            if (!ModelState.IsValid) // check validations like Required annotation
+            BlobContainerClient container = new BlobContainerClient(_Configuration.GetConnectionString("AzureBlob"), "attac");
+            await container.CreateIfNotExistsAsync();
+            BlobClient blob = container.GetBlobClient(file.FileName);
+            using var stream = file.OpenReadStream();
+
+            BlobUploadOptions options = new BlobUploadOptions()
             {
-                return View(cinema);
+                HttpHeaders = new BlobHttpHeaders() { ContentType = file.ContentType }
+            };
+
+
+            if (!blob.Exists())
+            {
+                await blob.UploadAsync(stream, options);
             }
+
+            cinema.Logo = blob.Uri.ToString();
+
             await _service.Update(id, cinema);
-            _toastNotification.AddSuccessToastMessage("Cinema edited successfully");
-            return RedirectToAction(nameof(Index));
+            _toastNotification.AddSuccessToastMessage("cinema Edited successfully");
+            stream.Close();
+
+            return RedirectToAction("Index");
         }
         // Get: Cinema/Delete/1
         [Authorize(Roles = "Administrator")]

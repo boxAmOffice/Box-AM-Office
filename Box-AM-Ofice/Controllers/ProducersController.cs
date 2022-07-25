@@ -9,6 +9,10 @@ using boxAmOffice.Models;
 using Box_AM_Ofice.Models.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using NToastNotify;
+using Microsoft.Extensions.Configuration;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Box_AM_Ofice.Controllers
 {
@@ -16,11 +20,16 @@ namespace Box_AM_Ofice.Controllers
     {
         private readonly IProducer _producer;
         private readonly IToastNotification _toastNotification;
+        private readonly IConfiguration _Configuration;
 
-        public ProducersController(IProducer producer,IToastNotification toastNotification)
+
+
+        public ProducersController(IProducer producer,IToastNotification toastNotification, IConfiguration config)
         {
             _producer = producer;
             _toastNotification = toastNotification;
+            _Configuration = config;
+
         }
 
         // GET: Producers
@@ -57,15 +66,32 @@ namespace Box_AM_Ofice.Controllers
         [Authorize(Roles = "Administrator")]
 
         [HttpPost]
-        public async Task<IActionResult> Create(Producer producer)
+        public async Task<IActionResult> Create(Producer producer, IFormFile file)
         {
-            if (ModelState.IsValid)
+            BlobContainerClient container = new BlobContainerClient(_Configuration.GetConnectionString("AzureBlob"), "attac");
+            await container.CreateIfNotExistsAsync();
+            BlobClient blob = container.GetBlobClient(file.FileName);
+            using var stream = file.OpenReadStream();
+
+            BlobUploadOptions options = new BlobUploadOptions()
             {
+                HttpHeaders = new BlobHttpHeaders() { ContentType = file.ContentType }
+            };
+
+
+            if (!blob.Exists())
+            {
+                await blob.UploadAsync(stream, options);
+            }
+
+            producer.ProfilePictureURL = blob.Uri.ToString();
+           
+           
                 await _producer.CreateProducer(producer);
                 _toastNotification.AddSuccessToastMessage("Producer created successfully");
+                stream.Close();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(producer);
+           
         }
 
         // GET: Producers/Edit/5
@@ -89,21 +115,31 @@ namespace Box_AM_Ofice.Controllers
         [Authorize(Roles = "Administrator")]
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, Producer producer)
+        public async Task<IActionResult> Edit(int id, Producer producer, IFormFile file)
         {
-            if (id != producer.Id)
+            BlobContainerClient container = new BlobContainerClient(_Configuration.GetConnectionString("AzureBlob"), "attac");
+            await container.CreateIfNotExistsAsync();
+            BlobClient blob = container.GetBlobClient(file.FileName);
+            using var stream = file.OpenReadStream();
+
+            BlobUploadOptions options = new BlobUploadOptions()
             {
-                return NotFound();
+                HttpHeaders = new BlobHttpHeaders() { ContentType = file.ContentType }
+            };
+
+
+            if (!blob.Exists())
+            {
+                await blob.UploadAsync(stream, options);
             }
 
-            if (ModelState.IsValid)
-            {
-                await _producer.UpdateProducer(id, producer);
-                _toastNotification.AddSuccessToastMessage("Producer edited successfully");
-                return RedirectToAction(nameof(Index));
-            }
+            producer.ProfilePictureURL = blob.Uri.ToString();
 
-            return View(producer);
+            await _producer.UpdateProducer(id, producer);
+            _toastNotification.AddSuccessToastMessage("Producer Edited successfully");
+            stream.Close();
+
+            return RedirectToAction("Index");
         }
 
         // GET: Producers/Delete/5

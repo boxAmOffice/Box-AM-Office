@@ -1,8 +1,5 @@
-﻿@*Define Model*@
-@using boxAmOffice.Models
+﻿@using boxAmOffice.Models
 @model IEnumerable<Cinema>
-@*Define ViewData, data in browser tab*@
-
 @{
 
     ViewData["Title"] = "List of Cinemas";
@@ -17,37 +14,52 @@
 {
     <p>
 
-        <a class="btn btn-outline-dark justify-content-xl-center" asp-action="Create">
-            <i class="bi bi-plus-circle"></i> Add New Actors
+        <a class="btn btn-outline-success justify-content-xl-center" asp-action="Create">
+            <i class="bi bi-plus-circle"></i> Add New Cinemas
         </a>
     </p>
 }
 <div class="cinema-container">
-	@foreach (var item in Model)
-	{
-		<div class="card">
-			<img class="card-img-top" src="@item.Logo" alt="Card image cap" style="width: 285px;
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <img class="card-img-top" src="@item.Logo" alt="Card image cap" style="width: 285px;
     height: 215px;">
-			<div class="card-body">
-				<h5 class="card-title">@item.Name</h5>
-				<p class="card-text">@item.Description.</p>
-                <div class="links">
-                    <a class="btn btn-outline-secondary" asp-controller="Movies" asp-action="GetMoviesByCinemaId" asp-route-id="@item.Id">Movies</a>
-                    <br>
-                    @if (User.IsInRole("Administrator"))
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <p class="card-text">@item.Description.</p>
+
+                <div>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
                     {
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">
+                            <i class="bi bi-pencil-square"></i>
+                            Edit
+                        </a>}
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-warning">
+                        <i class="bi bi-info"></i>
 
-                        <a class="text-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i>Edit</a>
-                        <a class="text-info" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i>Details</a>
-                        <a class="text-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Delete</a>
+                        Details
+                    </a>
+                    <a asp-controller="Movies" asp-action="GetMoviesByCinemaId" asp-route-id="@item.Id" class="btn btn-outline-dark">
+                        <i class="bi bi-film"></i>
 
+                        Movies
+                    </a>
+
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">
+                            <i class="bi bi-x"></i>
+
+                            Delete
+                        </a>
                     }
                 </div>
             </div>
         </div>
     }
 </div>
-@await Html.PartialAsync("_CreateItem", "Cinemas")
 
 <style>
     h1 {
