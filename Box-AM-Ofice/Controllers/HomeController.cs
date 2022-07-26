@@ -13,9 +13,20 @@ namespace Box_AM_Ofice.Controllers
             _movies = movies;
         }
 
+
         public async Task<IActionResult> Index()
         {
             return View(await _movies.GetMovies());
         }
+        public async Task<IActionResult> Index1()
+        {
+            return View(await _movies.GetMovies());
+        }
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+      
     }
 }
