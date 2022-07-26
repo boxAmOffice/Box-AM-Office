@@ -4,12 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Box_AM_Ofice</title>
+    <link href="~/css/footer.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/NavBar.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
 
 </head>
 <body>
@@ -48,35 +51,45 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="text-center text-lg-start text-light" style="background-color:#111;margin-top: 40px;">
-
-        <div class="container text-center text-md-start">
-            <div class="row ">
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" style="margin-top:25px;margin-bottom:25px">
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i> AM BOX OFFICE
-                    </h6>
-
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li>
+                            <a asp-controller="Home" asp-action="AboutUs">Our Team</a>
+                        </li>
+                        <li><a asp-controller="Movies" asp-action="Index">our services</a></li>
+                    </ul>
                 </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" style="margin-top:25px;margin-bottom:25px">
-
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a asp-controller="Movies" asp-action="Index">shipping</a></li>
+                        <li><a asp-controller="Orders" asp-action="ShoppingCart">order status</a></li>
+                    </ul>
                 </div>
-
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4" style="margin-top:25px;margin-bottom:25px">
-                    <h6 class="text-black-50 fw-bold mb-4">
-
-                        <a asp-controller="Home" asp-action="AboutUs">Our Team</a>
-                    </h6>
-
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a asp-controller="Movies" asp-action="Index">Movies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/sultan.kanaan.5"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/sultan_kanaan?t=WH4Whyq3upTwsmG14zKczQ&s=09"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/sultan-kanaan?tab=repositories"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/sultan-kanaan-14b68b192/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2022 Copyright: AM BOX OFFICE
-        </div>
     </footer>
- 
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
