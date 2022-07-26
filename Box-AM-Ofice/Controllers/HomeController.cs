@@ -18,11 +18,7 @@ namespace Box_AM_Ofice.Controllers
         {
             return View(await _movies.GetMovies());
         }
-        public async Task<IActionResult> Index1()
-        {
-            return View(await _movies.GetMovies());
-        }
-
+      
         public IActionResult AboutUs()
         {
             return View();
