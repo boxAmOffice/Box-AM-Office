@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Team Section</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="wrapper" ; margin-bottom: 400px;">
+        <div class="title">Our Team</div>
+        <div class="our_team">
+
+            <div class="team team_1">
+                <div class="team_img">
+                    <img src="~/images/sultan.png" alt="team_member">
+                </div>
+                <div class="team_role">ASP.net developer</div>
+
+                <div class="menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div class="info">
+                    <h3>Sultan Salman</h3>
+                    <p>born in Amman on  28-5-1992</p>
+                    <p>graduated from Al Hussein Bin Talal University as a software engineer<p>
+                    <p>call me 00962787535066</p>
+                </div>
+                <br />
+                <div class="flex-row">
+                    <a class="btn btn-outline-primary" href="https://github.com/sultan-kanaan?tab=repositories" role="button">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a class="btn btn-outline-primary" href="https://www.linkedin.com/in/sultan-kanaan-14b68b192/" role="button">
+                        <i class="bi bi-linkedin"></i>
+                    </a> <a class="btn btn-outline-primary" href="https://www.facebook.com/sultan.kanaan.5" role="button">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    </a> <a class="btn btn-outline-primary" href="https://twitter.com/sultan_kanaan?t=WH4Whyq3upTwsmG14zKczQ&s=09" role="button">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="team team_2">
+                <div class="team_img">
+                    <img src="~/images/hamza.png" alt="team_member">
+                </div>
+                <div class="team_role">HR Manager</div>
+                <div class="menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div class="info">
+                    <h4>Rossie Meg</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi, optio?</p>
+                </div>
+            </div>
+            <div class="team team_3">
+                <div class="team_img">
+                    <img src="~/images/islam.png" alt="team_member">
+                </div>
+                <div class="team_role">Developer</div>
+                <div class="menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div class="info">
+                    <h4>Ellyse Perry</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi, optio?</p>
+                </div>
+            </div>
+            <div class="team team_4">
+                <div class="team_img">
+                    <img src="~/images/hanen.png" alt="team_member">
+                </div>
+                <div class="team_role">Developer</div>
+                <div class="menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <div class="info">
+                    <h4>Jason Peter</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi, optio?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br /><br />
+    <br />
+
+
+</body>
+</html>
+
+@section Scripts{
+    <script src="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
+
+    </script>
+    <script>
+        var menu_items = document.querySelectorAll(".menu");
+
+
+        Array.from(menu_items).forEach(function (menu) {
+            menu.addEventListener("click", function () {
+                this.classList.toggle("active")
+            });
+        });
+    </script>
+}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto Mono', monospace;
+    }
+
+    .wrapper .title {
+        max-width: 500px;
+        width: 100%;
+        padding: 10px;
+        margin: 0 auto 10px;
+        background-image: src(../../wwwroot/images/out.jpg);
+        border-radius: 6px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        text-align: center;
+        font-size: 28px;
+        text-transform: uppercase;
+        font-family: "Cute Font", cursive;
+        color: #231955;
+    }
+
+    .wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+        .wrapper .our_team {
+            display: flex;
+            width: auto;
+        }
+
+            .wrapper .our_team .team {
+                width: 200px;
+                height: auto;
+                margin: 10px;
+                position: relative;
+            }
+
+                .wrapper .our_team .team img {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                }
+
+                .wrapper .our_team .team .team_role {
+                    padding: 10px;
+                    text-align: center;
+                    color: #fff;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                }
+
+            .wrapper .our_team .team_1 .team_role,
+            .wrapper .our_team .team_1 .menu,
+            .wrapper .our_team .team_1 .info {
+                background: #1abc9c;
+            }
+
+            .wrapper .our_team .team_2 .team_role,
+            .wrapper .our_team .team_2 .menu,
+            .wrapper .our_team .team_2 .info {
+                background: #3498db;
+            }
+
+            .wrapper .our_team .team_3 .team_role,
+            .wrapper .our_team .team_3 .menu,
+            .wrapper .our_team .team_3 .info {
+                background: #9b59b6;
+            }
+
+            .wrapper .our_team .team_4 .team_role,
+            .wrapper .our_team .team_4 .menu,
+            .wrapper .our_team .team_4 .info {
+                background: #e74c3c;
+            }
+
+    .menu {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 30px;
+        height: 50px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .menu > div {
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+            .menu > div:first-child {
+                top: 25%;
+            }
+
+            .menu > div:last-child {
+                top: 75%;
+            }
+
+    .info {
+        position: absolute;
+        top: 70px;
+        right: 5px;
+        width: 180px;
+        background: red;
+        padding: 10px;
+        text-align: right;
+        border-radius: 5px;
+        color: #fff;
+        display: none;
+    }
+
+        .info h4 {
+            margin-bottom: 15px;
+        }
+
+        .info p {
+            font-size: 12px;
+            line-height: 20px;
+            color: #323139;
+        }
+
+        .info:before {
+            content: "";
+            position: absolute;
+            top: -19px;
+            right: 6px;
+            border: 10px solid;
+        }
+
+    .wrapper .our_team .team_1 .info:before {
+        border-color: transparent transparent #1abc9c transparent;
+    }
+
+    .wrapper .our_team .team_2 .info:before {
+        border-color: transparent transparent #3498db transparent;
+    }
+
+
+    .wrapper .our_team .team_3 .info:before {
+        border-color: transparent transparent #9b59b6 transparent;
+    }
+
+    .wrapper .our_team .team_4 .info:before {
+        border-color: transparent transparent #e74c3c transparent;
+    }
+
+    .menu.active + .info {
+        display: block;
+    }
+</style>

@@ -182,6 +182,7 @@ namespace Box_AM_Ofice.Controllers
             return View("Index", allMovies);
         }
 
+
         [HttpGet("Movies/GetMoviesByCinemaId/{cinemaId}")]
         public async Task<IActionResult> GetMoviesByCinemaId(int cinemaId)
         {
