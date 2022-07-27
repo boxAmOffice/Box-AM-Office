@@ -159,6 +159,19 @@ namespace boxAmOffice.Models
                                 CinemaId = 2,
                                 ProducerId = 7,
                                 MovieCategory = MovieCategory.Action
+                            },
+                            new Movie
+                            {
+                                Id = 11,
+                                Name = "عمهم",
+                                Description = "سلطان ملاكم يجري ورا حلمه رغم الصعوبات تقوده الصدفه لتغيير حياته .",
+                                Price = 20.99,
+                                ImageURL = "https://sultan.blob.core.windows.net/attac/3amhom.jpg",
+                                StartDate = DateTime.Now.AddDays(-10),
+                                EndDate = DateTime.Now.AddDays(10),
+                                CinemaId = 3,
+                                ProducerId = 8,
+                                MovieCategory = MovieCategory.Comedy
                             }
                         );
 
@@ -183,15 +196,15 @@ namespace boxAmOffice.Models
                  {
                      Id = 3,
                      FullName = "Paula Wagner",
-                     Bio = "Wagner was born Paula Sue Kauffman in Youngstown, Ohio. Her mother, Sue Anna (née Shofstall), was a news magazine editor from Oklahoma, and her father, Edmund Jamison Ned Kauffman, Jr., was a business owner.",
-                     ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Paula-Wagner-Deauville.png"
+                     Bio = "Paula Kauffman Wagner (born Paula Sue Kauffman) is an American film producer and film executive",
+                     ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Paula_Wagner.jpg"
 
                  },
                   new Producer
                   {
                       Id = 4,
                       FullName = "Frank Marshall",
-                      Bio = "Frank Wilton Marshall (born September 13, 1946) is an American film producer and director. He often collaborates with his wife, film producer Kathleen Kennedy. ",
+                      Bio = "Frank Wilton Marshall (born September 13, 1946) is an American film producer and director",
                       ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Frank-Marshall.jpg"
 
                   },
@@ -199,25 +212,32 @@ namespace boxAmOffice.Models
                   {
                       Id = 5,
                       FullName = "Larry Franco",
-                      Bio = "Larry Joseph Franco (born April 5, 1949) is an American film producer. He has also served as an actor, second unit director and assistant director.",
-                      ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Larry-Franco.jpg"
+                      Bio = "Larry Joseph Franco (born April 5, 1949) is an American film producer",
+                      ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Larry.jfif"
 
                   },
                   new Producer
                   {
                       Id = 6,
                       FullName = "Ralph Guggenheim",
-                      Bio = "Ralph Guggenheim is an American video graphics designer and film producer. He won a Producers Guild of America Award in 1995 for his contributions to the film Toy Story..",
-                      ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Ralph-Guggenheim.jpg"
+                      Bio = "Ralph Guggenheim is an American video graphics designer and film producer",
+                      ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Ralph.jpg"
 
-                  }
-                  ,
+                  },
                   new Producer
                   {
                       Id = 7,
                       FullName = "Kevin Feige",
-                      Bio = "Kevin Feige is an American film and television producer who has been the president of Marvel Studios and the primary producer of the Marvel Cinematic Universe franchise since 2007.",
-                      ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Kevin-Feige.jpg"
+                      Bio = "Kevin Feige is an American film and television producer",
+                      ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Kevin_Feige.jpg"
+
+                  },
+                  new Producer
+                  {
+                      Id = 8,
+                      FullName = "حسين المنباوي",
+                      Bio = "حسين المنباوي هو مخرج أفلام ومسلسلات مصري",
+                      ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/حسينالمنباوي.jpg"
 
                   }
                  );
@@ -260,7 +280,7 @@ namespace boxAmOffice.Models
                     Id = 5,
                     FullName = "Jalil Asretov",
                     Bio = "alil Asretov was born on February 26, 1994 in Makhachkala , Russia",
-                    ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Jalil_Asretov.png"
+                    ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Jalil-Asretov.jpg"
 
                 },
                 new Actor
@@ -276,7 +296,7 @@ namespace boxAmOffice.Models
                       Id = 7,
                       FullName = "Thomas Cruise",
                       Bio = "Thomas Cruise Mapother IV(born July 3, 1962) is an American actor and producer",
-                      ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Tom-Cruise.jpg"
+                      ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/ThomasCruise.jpg"
                   },
                     new Actor
                     {
@@ -290,51 +310,51 @@ namespace boxAmOffice.Models
                          Id = 9,
                          FullName = "Jeff Goldblum",
                          Bio = "Jeffrey Lynn Goldblum (born October 22, 1952) is an American actor and musician.",
-                         ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Jeff-Goldblum.jpg"
+                         ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/JeffGoldblum.jfif"
                      },
                       new Actor
                       {
                           Id = 10,
                           FullName = "Sam Neill",
-                          Bio = "Sam Neill was born in Omagh, Co. Tyrone, Northern Ireland, to army parents, an English-born mother, Priscilla Beatrice (Ingham), and a New Zealand-born father, Dermot Neill.",
-                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Sam-Neill.jpg"
+                          Bio = "Sam Neill was born in Omagh, Co. Tyrone, Northern Ireland, to army parents, an English-born mother, Priscilla Beatrice (Ingham)",
+                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/SamNeill.jpg"
                       },
                       new Actor
                       {
                           Id = 11,
                           FullName = "Steven Spielberg",
-                          Bio = "Steven Allan Spielberg (/ˈspiːlbɜːrɡ/; born December 18, 1946) is an American film director, producer, and screenwriter.[1] A figure of the New Hollywood era, he is the most commercially successful director of all time. ",
-                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Steven-Spielberg.jpg"
+                          Bio = "Steven Allan Spielberg (born December 18, 1946) is an American film director, producer, and screenwriter",
+                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Steven_Spielberg.jpg"
                       },
-                      
+
                       new Actor
                       {
                           Id = 12,
                           FullName = "Tom Hanks",
-                          Bio = "Thomas Jeffrey Hanks was born in Concord, California, to Janet Marylyn (Frager), a hospital worker, and Amos Mefford Hanks, an itinerant cook. His mother's family, originally surnamed Fraga, was entirely Portuguese, while his father was of mostly English ancestry.",
-                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Tom-Hanks.jpg"
+                          Bio = "Thomas Jeffrey Hanks (born July 9, 1956) is an American actor and filmmaker",
+                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/TomHanks.jpg"
                       },
-                      
+
                       new Actor
                       {
                           Id = 13,
-                          FullName = "Tim Allen (I)",
-                          Bio = "Timothy Allen Dick was born on June 13, 1953, in Denver, Colorado, to Martha Katherine (Fox) and Gerald M. Dick. ",
-                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Tim-Allen.jpg"
+                          FullName = "Tim Allen",
+                          Bio = "Timothy Alan Dick (born June 13, 1953), known professionally as Tim Allen, is an American actor and comedian",
+                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/TimAllen.jpg"
                       },
                       new Actor
                       {
                           Id = 14,
                           FullName = "Simu iu",
-                          Bio = "Simu Liu (/ˈsimu ˈlijuː/ SEE-moo LEE-ew;[2] Chinese: 刘思慕; born 19 April 1989) is a Canadian actor, author, and stuntman. He is known for portraying Shang-Chi in the 2021 Marvel Cinematic Universe film Shang-Chi and the Legend of the Ten Rings..",
-                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Simu-iu.jpg"
+                          Bio = "Simu Liu is a Canadian actor, author, and stuntman",
+                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/SimuLiu.jpg"
                       },
                       new Actor
                       {
                           Id = 15,
                           FullName = "Tony Leung Chiu-wai",
-                          Bio = "Tony Leung Chiu-wai (Chinese: 梁朝偉, born 27 June 1962) is a Hong Kong actor and singer. He is one of Asia's most successful and internationally recognized actors, and was named as Small Tiger among the Five Tiger Generals of TVB.",
-                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Tony-Leung-Chiu-wai.jpg"
+                          Bio = "Tony Leung Chiu-wai (born 27 June 1962) is a Hong Kong actor and singer. He is one of Asia's most successful and internationally recognized actors",
+                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/TonyLeung.jpg"
                       }
                       ,
                       new Actor
@@ -349,8 +369,26 @@ namespace boxAmOffice.Models
                       {
                           Id = 17,
                           FullName = "Taika Waititi",
-                          Bio = "Taika David Cohen ONZM, known professionally as Taika Waititi, is a New Zealand filmmaker, actor, and comedian. He is a recipient of an Academy Award, a BAFTA Award, and a Grammy Award, and has received two nominations at the Primetime Emmy Awards.",
-                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Taika-Waititi.jpg"
+                          Bio = "Taika David Cohen , known professionally as Taika Waititi, is a New Zealand filmmaker, actor, and comedian",
+                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/TaikaWaititi.jfif"
+                      }, new Actor
+                      {
+                          Id = 18,
+                          FullName = "محمد امام",
+                          Bio = "ممثل مصري. وهو نجل الفنان عادل إمام وشقيق المخرج رامي إمام",
+                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/MEmam.jpg"
+                      }, new Actor
+                      {
+                          Id = 19,
+                          FullName = "محمد سلام",
+                          Bio = "ممثل مصري له العديد من الأعمال الكوميدية",
+                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/MTharwat.jpg"
+                      }, new Actor
+                      {
+                          Id = 20,
+                          FullName = "أيتن عامر",
+                          Bio = "أيتن عامر (22 نوفمبر 1986-)، ممثلة مصرية",
+                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Aiten.jpeg"
                       }
 
                 );
@@ -482,6 +520,18 @@ namespace boxAmOffice.Models
                   {
                       ActorId = 17,
                       MovieId = 10
+                  }, new Actor_Movie()
+                  {
+                      ActorId = 18,
+                      MovieId = 11
+                  }, new Actor_Movie()
+                  {
+                      ActorId = 19,
+                      MovieId = 11
+                  }, new Actor_Movie()
+                  {
+                      ActorId = 20,
+                      MovieId = 11
                   }
                 );
             modelBuilder.Entity<Actor_Movie>().HasKey(am => new
@@ -525,58 +575,10 @@ namespace boxAmOffice.Models
                 RoleId = ADMIN_ROLE_ID,
                 UserId = ADMIN_ID
             });
-        
-        //        //any unique string id
-        //        const string ADMIN_ID = "abcbe9c0";
-        //        const string ADMIN_ROLE_ID = "ad376a8ff";
 
-        //        // create an Admin role
-        //        modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole
-        //        {
-        //            Id = ADMIN_ROLE_ID,
-        //            Name = "Administrator",
-        //            NormalizedName = "Admin"
-        //        });
 
-        //        //create a User
-        //       var hasher = new PasswordHasher<ApplicationUser>();
-        //        modelBuilder.Entity<ApplicationUser>().HasData(new ApplicationUser
-        //        {
-        //            Id = ADMIN_ID,
-        //            UserName = "admin",
-        //            NormalizedUserName = "admin",
-        //            Email = "admin@gmail.com",
-        //            NormalizedEmail = "admin@gmail.com",
-        //            EmailConfirmed = false,
-        //            PasswordHash = hasher.HashPassword(null, "@dmin123"),
-        //            SecurityStamp = string.Empty
-        //        });
 
-        //        //assign that user to the admin role
-        //        modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
-        //        {
-        //            RoleId = ADMIN_ROLE_ID,
-        //            UserId = ADMIN_ID
-        //        });
-
-        //        SeedRoles(modelBuilder, "Administrator");
-
-        //    }
-
-        //    private void SeedRoles(ModelBuilder modelBuilder, string roleName)
-        //    {
-        //        var role = new IdentityRole
-        //        {
-        //            Id = roleName.ToLower(),
-        //            Name = roleName,
-        //            NormalizedName = roleName.ToUpper(),
-        //            ConcurrencyStamp = Guid.Empty.ToString()
-        //        };
-        //        modelBuilder.Entity<IdentityRole>().HasData(role);
-
-        //}
-
-    }
+        }
     }
 
 }
