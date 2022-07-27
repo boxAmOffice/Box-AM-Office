@@ -189,5 +189,14 @@ namespace Box_AM_Ofice.Controllers
             return View("Index", await _movies.GetMoviesByCinemaId(cinemaId));
         }
 
+        [HttpGet("Movies/GetMoviesByProducerId/{ProducerId}")]
+        public async Task<IActionResult> GetMoviesByProducerId(int ProducerId)
+        {
+            return View("Index", await _movies.GetMoviesByProducerId(ProducerId));
+        }
+       
+
+
+
     }
 }

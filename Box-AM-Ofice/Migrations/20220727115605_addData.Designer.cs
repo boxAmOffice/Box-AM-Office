@@ -10,7 +10,7 @@ using boxAmOffice.Models;
 namespace Box_AM_Ofice.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220727072121_addData")]
+    [Migration("20220727115605_addData")]
     partial class addData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -93,13 +93,13 @@ namespace Box_AM_Ofice.Migrations
                         {
                             Id = "a18be9c0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b1bda1fc-544a-4b8f-97b8-96d87a6c7562",
+                            ConcurrencyStamp = "fa6e3305-4da0-4cf4-b30a-164f45507908",
                             Email = "Administrator@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "Administrator@gmail.com",
                             NormalizedUserName = "Administrator",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBxpDw8cQzV2ZnJIof6fJfD6oOUviyXGjtsBS5Gu1qty0WGq5kcflgzfu6Tcb2nY0Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGUMo2WURlqZyOpIk/LUN4YntBTkNdqG0imC23OlRMMOJjHs/kJflXln2/8NjpyEag==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -137,7 +137,7 @@ namespace Box_AM_Ofice.Migrations
                         new
                         {
                             Id = "ad376a8f",
-                            ConcurrencyStamp = "88071775-5f3b-45b7-90ee-fe37b1c798a0",
+                            ConcurrencyStamp = "6860681a-f93c-4f3f-a0e5-45a590d99141",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         });
@@ -282,14 +282,14 @@ namespace Box_AM_Ofice.Migrations
                         new
                         {
                             Id = 1,
-                            Bio = "Is an American actor and comedian",
+                            Bio = "Is an American actor and comedian (born August 16, 1962, Concord, Massachusetts, U.S.)",
                             FullName = "Steven John",
                             ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/StevenJohn.jpg"
                         },
                         new
                         {
                             Id = 2,
-                            Bio = "Is an Belgian actor",
+                            Bio = "Is an Belgian actor ( born 18 October 1960  in Brussels, Belgium)",
                             FullName = "Van Damme",
                             ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Van_Damme.jpg"
                         },
@@ -418,6 +418,13 @@ namespace Box_AM_Ofice.Migrations
                             Bio = "أيتن عامر (22 نوفمبر 1986-)، ممثلة مصرية",
                             FullName = "أيتن عامر",
                             ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Aiten.jpeg"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Bio = " تامر حسني هو مغني، وكاتب أغاني، وملحن، وممثل، وكاتب سيناريو، ومخرج",
+                            FullName = "Tamer Hosny",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/TamerHosny.jpg"
                         });
                 });
 
@@ -540,6 +547,11 @@ namespace Box_AM_Ofice.Migrations
                         {
                             ActorId = 20,
                             MovieId = 11
+                        },
+                        new
+                        {
+                            ActorId = 21,
+                            MovieId = 12
                         });
                 });
 
@@ -639,143 +651,156 @@ namespace Box_AM_Ofice.Migrations
                             Id = 1,
                             CinemaId = 1,
                             Description = "This is the Life movie description",
-                            EndDate = new DateTime(2022, 8, 6, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(6087),
+                            EndDate = new DateTime(2022, 8, 6, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(201),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/life.jpg",
                             MovieCategory = 4,
                             Name = "Life",
                             Price = 39.5,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 17, 10, 21, 19, 433, DateTimeKind.Local).AddTicks(6997)
+                            StartDate = new DateTime(2022, 7, 17, 14, 56, 3, 792, DateTimeKind.Local).AddTicks(852)
                         },
                         new
                         {
                             Id = 2,
                             CinemaId = 2,
                             Description = "The untold story of one twelve-year-old's dream to become the world's greatest supervillain.",
-                            EndDate = new DateTime(2022, 8, 6, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8838),
+                            EndDate = new DateTime(2022, 8, 6, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3062),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Minions.jpg",
                             MovieCategory = 2,
                             Name = "Minions: The Rise of Gru",
                             Price = 25.989999999999998,
                             ProducerId = 1,
-                            StartDate = new DateTime(2022, 7, 17, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8805)
+                            StartDate = new DateTime(2022, 7, 17, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3030)
                         },
                         new
                         {
                             Id = 3,
                             CinemaId = 3,
                             Description = "Ivan sets off on a dangerous mission into Syria to save his ex-commander Grey after his capture by ISIS. With the help of U.S. military patrols, he succeeds in freeing Grey and attempts to escape the country while being hunted by terrorists.",
-                            EndDate = new DateTime(2022, 8, 6, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8857),
+                            EndDate = new DateTime(2022, 8, 6, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3083),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Infiltration.png",
                             MovieCategory = 1,
                             Name = "Infiltration",
                             Price = 29.989999999999998,
                             ProducerId = 2,
-                            StartDate = new DateTime(2022, 7, 17, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8850)
+                            StartDate = new DateTime(2022, 7, 17, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3075)
                         },
                         new
                         {
                             Id = 4,
                             CinemaId = 3,
                             Description = "A bookish marmoset embarks on a wild adventure to travel around the planet in 80 days after accepting a challenge from a greedy frog.",
-                            EndDate = new DateTime(2022, 8, 6, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8874),
+                            EndDate = new DateTime(2022, 8, 6, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3102),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Around-the-World-in-80-Days.jpg",
                             MovieCategory = 1,
                             Name = "Around the World in 80 Days",
                             Price = 22.989999999999998,
                             ProducerId = 2,
-                            StartDate = new DateTime(2022, 7, 17, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8867)
+                            StartDate = new DateTime(2022, 7, 17, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3094)
                         },
                         new
                         {
                             Id = 5,
                             CinemaId = 3,
                             Description = "An American agent, under false suspicion of disloyalty, must discover and expose the real spy without the help of his organization.",
-                            EndDate = new DateTime(2022, 8, 1, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8891),
+                            EndDate = new DateTime(2022, 8, 1, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3120),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Mission-Impossible.png",
                             MovieCategory = 1,
                             Name = "Mission: Impossible",
                             Price = 26.989999999999998,
                             ProducerId = 3,
-                            StartDate = new DateTime(2022, 7, 22, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8883)
+                            StartDate = new DateTime(2022, 7, 22, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3112)
                         },
                         new
                         {
                             Id = 6,
                             CinemaId = 3,
                             Description = "Four years after the destruction of Isla Nublar, dinosaurs now live--and hunt--alongside humans all over the world.",
-                            EndDate = new DateTime(2022, 8, 4, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8907),
+                            EndDate = new DateTime(2022, 8, 4, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3138),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Jurassic-World-Dominion.jpg",
                             MovieCategory = 1,
                             Name = "Jurassic World Dominion",
                             Price = 10.99,
                             ProducerId = 4,
-                            StartDate = new DateTime(2022, 7, 20, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8899)
+                            StartDate = new DateTime(2022, 7, 20, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3130)
                         },
                         new
                         {
                             Id = 7,
                             CinemaId = 2,
                             Description = "A decidedly odd couple with ulterior motives convince Dr. Grant to go to Isla Sorna for a holiday, but their unexpected landing startles the island's new inhabitants..",
-                            EndDate = new DateTime(2022, 8, 3, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8924),
+                            EndDate = new DateTime(2022, 8, 3, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3156),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Jurassic-Park-III.jpg",
                             MovieCategory = 1,
                             Name = "Jurassic Park III",
                             Price = 30.989999999999998,
                             ProducerId = 5,
-                            StartDate = new DateTime(2022, 7, 25, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8917)
+                            StartDate = new DateTime(2022, 7, 25, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3148)
                         },
                         new
                         {
                             Id = 8,
                             CinemaId = 1,
                             Description = "A cowboy doll is profoundly threatened and jealous when a new spaceman action figure supplants him as top toy in a boy's bedroom.",
-                            EndDate = new DateTime(2022, 8, 10, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8941),
+                            EndDate = new DateTime(2022, 8, 10, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3174),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Toy-Story.jpg",
                             MovieCategory = 2,
                             Name = "Toy Story",
                             Price = 10.99,
                             ProducerId = 6,
-                            StartDate = new DateTime(2022, 7, 13, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8932)
+                            StartDate = new DateTime(2022, 7, 13, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3166)
                         },
                         new
                         {
                             Id = 9,
                             CinemaId = 1,
                             Description = "Shang-Chi, the master of weaponry-based Kung Fu, is forced to confront his past after being drawn into the Ten Rings organization..",
-                            EndDate = new DateTime(2022, 8, 9, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8954),
+                            EndDate = new DateTime(2022, 8, 9, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3194),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Shang-Chi.jpg",
                             MovieCategory = 1,
                             Name = "Shang-Chi and the Legend of the Ten Rings",
                             Price = 25.989999999999998,
                             ProducerId = 7,
-                            StartDate = new DateTime(2022, 7, 14, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8948)
+                            StartDate = new DateTime(2022, 7, 14, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3185)
                         },
                         new
                         {
                             Id = 10,
                             CinemaId = 2,
                             Description = "A bookish marmoset embarks on a wild adventure to travel around the planet in 80 days after accepting a challenge from a greedy frog.",
-                            EndDate = new DateTime(2022, 8, 15, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8968),
+                            EndDate = new DateTime(2022, 8, 15, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3212),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/Thor-Ragnarok.jpg",
                             MovieCategory = 1,
                             Name = "Thor: Ragnarok",
                             Price = 25.989999999999998,
                             ProducerId = 7,
-                            StartDate = new DateTime(2022, 7, 8, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8962)
+                            StartDate = new DateTime(2022, 7, 8, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3204)
                         },
                         new
                         {
                             Id = 11,
                             CinemaId = 3,
                             Description = "سلطان ملاكم يجري ورا حلمه رغم الصعوبات تقوده الصدفه لتغيير حياته .",
-                            EndDate = new DateTime(2022, 8, 6, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8982),
+                            EndDate = new DateTime(2022, 8, 6, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3230),
                             ImageURL = "https://sultan.blob.core.windows.net/attac/3amhom.jpg",
                             MovieCategory = 2,
                             Name = "عمهم",
                             Price = 20.989999999999998,
                             ProducerId = 8,
-                            StartDate = new DateTime(2022, 7, 17, 10, 21, 19, 440, DateTimeKind.Local).AddTicks(8976)
+                            StartDate = new DateTime(2022, 7, 17, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3222)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CinemaId = 2,
+                            Description = "علي شاب عصامي من الطبقة المتوسطة يجد نفسه مجزأ بين حبيبته التي ينوي الزواج بها وخطيبته القديمة التي ظهرت في حياته من جديد. فماذا يملي عليه قلبه؟",
+                            EndDate = new DateTime(2022, 8, 6, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3249),
+                            ImageURL = "https://sultan.blob.core.windows.net/attac/بحبك.jpg",
+                            MovieCategory = 3,
+                            Name = "بحبك",
+                            Price = 21.989999999999998,
+                            ProducerId = 9,
+                            StartDate = new DateTime(2022, 7, 17, 14, 56, 3, 799, DateTimeKind.Local).AddTicks(3240)
                         });
                 });
 
@@ -907,6 +932,13 @@ namespace Box_AM_Ofice.Migrations
                             Bio = "حسين المنباوي هو مخرج أفلام ومسلسلات مصري",
                             FullName = "حسين المنباوي",
                             ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/حسينالمنباوي.jpg"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Bio = " تامر حسني هو مغني، وكاتب أغاني، وملحن، وممثل، وكاتب سيناريو، ومخرج",
+                            FullName = "Tamer Hosny",
+                            ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/TamerHosny.jpg"
                         });
                 });
 

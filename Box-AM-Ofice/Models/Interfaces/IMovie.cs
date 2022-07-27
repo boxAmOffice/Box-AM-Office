@@ -17,6 +17,9 @@ namespace Box_AM_Ofice.Models.Interfaces
         Task<MovieDropdownsVM> GetNewMovieDropdownsValues();
 
         Task<List<Movie>> GetMoviesByCinemaId(int cinemaId);
+        Task<List<Movie>> GetMoviesByProducerId(int ProducerId);
+
+
 
     }
 }
