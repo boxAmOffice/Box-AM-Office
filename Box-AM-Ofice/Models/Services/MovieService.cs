@@ -114,5 +114,11 @@ namespace Box_AM_Ofice.Models.Services
 			var movies = await _context.Movies.Where(m => m.CinemaId == cinemaId).ToListAsync();
 			return movies;
         }
-    }
+		public async Task<List<Movie>> GetMoviesByProducerId(int ProducerId)
+		{
+			var movies = await _context.Movies.Where(m => m.ProducerId == ProducerId).ToListAsync();
+			return movies;
+		}
+		
+	}
 }

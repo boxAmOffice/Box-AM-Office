@@ -172,6 +172,19 @@ namespace boxAmOffice.Models
                                 CinemaId = 3,
                                 ProducerId = 8,
                                 MovieCategory = MovieCategory.Comedy
+                            },
+                            new Movie
+                            {
+                                Id = 12,
+                                Name = "بحبك",
+                                Description = "علي شاب عصامي من الطبقة المتوسطة يجد نفسه مجزأ بين حبيبته التي ينوي الزواج بها وخطيبته القديمة التي ظهرت في حياته من جديد. فماذا يملي عليه قلبه؟",
+                                Price = 21.99,
+                                ImageURL = "https://sultan.blob.core.windows.net/attac/بحبك.jpg",
+                                StartDate = DateTime.Now.AddDays(-10),
+                                EndDate = DateTime.Now.AddDays(10),
+                                CinemaId = 2,
+                                ProducerId = 9,
+                                MovieCategory = MovieCategory.Drama
                             }
                         );
 
@@ -239,6 +252,14 @@ namespace boxAmOffice.Models
                       Bio = "حسين المنباوي هو مخرج أفلام ومسلسلات مصري",
                       ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/حسينالمنباوي.jpg"
 
+                  },
+                  new Producer
+                  {
+                      Id = 9,
+                      FullName = "Tamer Hosny",
+                      Bio = " تامر حسني هو مغني، وكاتب أغاني، وملحن، وممثل، وكاتب سيناريو، ومخرج",
+                      ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/TamerHosny.jpg"
+
                   }
                  );
 
@@ -247,7 +268,7 @@ namespace boxAmOffice.Models
                 {
                     Id = 1,
                     FullName = "Steven John",
-                    Bio = "Is an American actor and comedian",
+                    Bio = "Is an American actor and comedian (born August 16, 1962, Concord, Massachusetts, U.S.)",
                     ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/StevenJohn.jpg"
 
                 },
@@ -255,7 +276,7 @@ namespace boxAmOffice.Models
                 {
                     Id = 2,
                     FullName = "Van Damme",
-                    Bio = "Is an Belgian actor",
+                    Bio = "Is an Belgian actor ( born 18 October 1960  in Brussels, Belgium)",
                     ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Van_Damme.jpg"
 
                 },
@@ -383,12 +404,20 @@ namespace boxAmOffice.Models
                           FullName = "محمد سلام",
                           Bio = "ممثل مصري له العديد من الأعمال الكوميدية",
                           ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/MTharwat.jpg"
-                      }, new Actor
+                      }, 
+                      new Actor
                       {
                           Id = 20,
                           FullName = "أيتن عامر",
                           Bio = "أيتن عامر (22 نوفمبر 1986-)، ممثلة مصرية",
                           ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/Aiten.jpeg"
+                      },
+                      new Actor
+                      {
+                          Id = 21,
+                          FullName = "Tamer Hosny",
+                          Bio = " تامر حسني هو مغني، وكاتب أغاني، وملحن، وممثل، وكاتب سيناريو، ومخرج",
+                          ProfilePictureURL = "https://sultan.blob.core.windows.net/attac/TamerHosny.jpg"
                       }
 
                 );
@@ -532,6 +561,10 @@ namespace boxAmOffice.Models
                   {
                       ActorId = 20,
                       MovieId = 11
+                  }, new Actor_Movie()
+                  {
+                      ActorId = 21,
+                      MovieId = 12
                   }
                 );
             modelBuilder.Entity<Actor_Movie>().HasKey(am => new
