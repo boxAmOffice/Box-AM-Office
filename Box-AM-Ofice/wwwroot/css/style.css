@@ -9,7 +9,7 @@
 }
 
 body {
-	background: url('https://t3.ftcdn.net/jpg/04/91/47/76/360_F_491477688_CBXPZV5BNplKMR9hC9qfdO1a8WJoQDiQ.jpg') no-repeat top center;
+	/*background: url('https://t3.ftcdn.net/jpg/04/91/47/76/360_F_491477688_CBXPZV5BNplKMR9hC9qfdO1a8WJoQDiQ.jpg') no-repeat top center;*/
 	background-size: cover;
 	font-size: 16px;
 	color: #29323a;
@@ -32,13 +32,13 @@ body {
 .title h1 {
 	text-align: center;
 	text-transform: uppercase;
-	color: #02b3e4;
+	color: #111;
 	margin-bottom: 20px;
 	letter-spacing: 5px;
 }
 
 .sign-in h2 {
-	color: #02b3e4;
+	color: #111;
 	margin-bottom: 20px;
 	text-align: center;
 }

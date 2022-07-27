@@ -36,8 +36,8 @@
                         </p>                       
                         <p class="card-text"><b>Price: </b>@Model.Price.ToString("c")</p>
                         <p class="card-text"><b>Category: </b>@Model.MovieCategory</p>
-                        <p class="card-text"><b>Start Date: </b>@Model.StartDate.ToString("dd MMM yy")</p>
-                        <p class="card-text"><b>End Date: </b>@Model.EndDate.ToString("dd MMM yy")</p>
+                        <p class="card-text"><b>Start Date: </b>@Model.StartDate.</p>
+                        <p class="card-text"><b>End Date: </b>@Model.EndDate</p>
                         <p class="card-text ">
                             <b>Status: </b>
                             @if (DateTime.Now >= Model.StartDate && DateTime.Now <= Model.EndDate)
@@ -60,7 +60,7 @@
                                 @foreach (var actor in Model.Actors_Movies)
                                 {
                                     <div class="column text-center">
-                                        <img class="border-info rounded-circle" src="@actor.Actor.ProfilePictureURL" style="max-width: 150px" />
+                                        <img class="border-info rounded-circle" src="@actor.Actor.ProfilePictureURL" style="max-height: 180px" />
                                         <br />
                                         <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.ActorId">@actor.Actor.FullName</a>
                                     </div>

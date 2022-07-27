@@ -17,9 +17,10 @@
 
         <div style="margin:25px;padding:25px">
             <div class="text-dark">
-                <h1 class="display-1 text-danger">AM <span class="display-4 text-dark">BOX OFFICE</span></h1>
-                <p>A place where you can find movies you love!</p>
-                <p>Pick your ticket NOW!</p>
+                <h1 class="display-1" style="font-family: Impact; color:red;">AM <span class="display-4 text-dark">BOX OFFICE</span></h1>
+                <h5 class="text-muted">A place where you can find movies you love!</h5>
+                <h5 class="text-muted">Pick your ticket NOW!</h5>
+                <br />
                 <a class="cinema-btn btn btn-secondary" asp-controller="Movies" asp-action="Index"><i class="bi bi-film"></i> Movies</a>
             </div>
         </div>
@@ -93,94 +94,3 @@
         <a asp-controller="Home" asp-action="AboutUs">Learn More</a>
     </div>
 </div>
-<style>
-    .carousel {
-        margin: 50px auto;
-        padding: 0 70px;
-    }
-
-        .carousel .item {
-            min-height: 325px;
-            overflow: hidden;
-        }
-
-            .carousel .item img {
-                max-width: 100%;
-                max-height: 100%;
-                display: inline-block;
-                position: absolute;
-                bottom: 0;
-                margin: 0 auto;
-                left: 0;
-                right: 0;
-            }
-
-            .carousel .item h4 {
-                font-size: 18px;
-            }
-
-            .carousel .item h4, .carousel .item p, .carousel .item ul {
-                margin-bottom: 5px;
-            }
-
-        .carousel .thumb-content .btn {
-            color: #7ac400;
-            font-size: 11px;
-            text-transform: uppercase;
-            font-weight: bold;
-            background: none;
-            border: 1px solid #7ac400;
-            padding: 6px 14px;
-            margin-top: 5px;
-            line-height: 16px;
-            border-radius: 20px;
-        }
-
-            .carousel .thumb-content .btn:hover, .carousel .thumb-content .btn:focus {
-                color: #fff;
-                background: #7ac400;
-                box-shadow: none;
-            }
-
-            .carousel .thumb-content .btn i {
-                font-size: 14px;
-                font-weight: bold;
-                margin-left: 5px;
-            }
-
-    .carousel-control-prev, .carousel-control-next {
-        height: 44px;
-        width: 40px;
-        background: red;
-        margin: auto 0;
-        border-radius: 4px;
-        opacity: 0.8;
-    }
-
-        .carousel-control-prev:hover, .carousel-control-next:hover {
-            background: red;
-            opacity: 1;
-        }
-
-        .carousel-control-prev i, .carousel-control-next i {
-            font-size: 36px;
-            position: absolute;
-            top: 50%;
-            display: inline-block;
-            margin: -19px 0 0 0;
-            z-index: 5;
-            left: 0;
-            right: 0;
-            color: #fff;
-            text-shadow: none;
-            font-weight: bold;
-        }
-
-        .carousel-control-prev i {
-            margin-left: -2px;
-        }
-
-        .carousel-control-next i {
-            margin-right: -4px;
-        }
-</style>
